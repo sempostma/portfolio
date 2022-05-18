@@ -1,0 +1,27 @@
+<article class="project-article" keywords="{{$ctrl.project.keywords.join(', ')}}" webapp="{{$ctrl.project.webApp}}" desktopapp="{{$ctrl.project.desktopApp}}"
+    mobile="{{$ctrl.project.mobileApp}}" util="{{$ctrl.project.util}}">
+    <h1 class="title">{{$ctrl.project.title}}</h1>
+    <div class="proj-colors-and-techs">
+        <div class="proj-type-colors" data-aos="zoom-in-right">
+            <div class="proj-type-color webapp" title="Web App" ng-if="$ctrl.project.webApp"></div>
+            <div class="proj-type-color desktopapp" title="Desktop App" ng-if="$ctrl.project.desktopApp"></div>
+            <div class="proj-type-color mobileapp" title="Mobile App" ng-if="$ctrl.project.mobileApp"></div>
+            <div class="proj-type-color util" title="Utility" ng-if="$ctrl.project.util"></div>
+        </div>
+        <div class="proj-techs" data-aos="zoom-in-left">
+            <div class="proj-tech" title="{{tech.name}}" ng-repeat="tech in $ctrl.technologies  track by $index" id="tech-{{$index}}"
+            ng-attr-style="background-image: url('./images/techs/{{tech.icon}}');">
+                <!-- <div class="imgbefore"></div>
+                <div class="img" alt="{{tech.name}}" title="{{tech.name}}:&#13;&#10;{{tech.desc}}"> -->
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <console ng-if="$ctrl.project.console !== undefined" console="$ctrl.project.console" name="{{$ctrl.project.console.name}}"></console>
+    <p ng-bind-html="$ctrl.projContentText"></p>
+    <div class="images">
+        <img ng-repeat="img in $ctrl.project.content.images  track by $index" ng-attr-src="{{img}}" class="modal-image" alt="{{$ctrl.project.title}} Image {{$index + 1}}"></img>
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+</article>

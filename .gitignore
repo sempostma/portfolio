@@ -1,0 +1,17 @@
+node_modules
+*.log*
+.DS_Store
+gen_docs.disable
+test.disable
+regression/temp*.html
+performance/temp*.html
+.idea/workspace.xml
+*~
+*.swp
+angular.js.tmproj
+node_modules/
+bower_components/
+.idea
+*.log
+client/.jekyll-cache
+client/_site

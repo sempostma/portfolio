@@ -1,0 +1,36 @@
+@function alertColor($color) {
+    @return rgba($color, .8);
+}
+
+.alert {
+    background: alertColor($col-default);
+    color: $col-white;
+    padding: 20px 30px;
+    border-radius: 3px;
+}
+
+.alert.alert-primary {
+    background: alertColor($col-primary);
+}
+
+.alert.alert-warning {
+    background: alertColor($col-warning);
+}
+
+.alert.alert-danger {
+    background: alertColor($col-danger);
+}
+
+
+.alert.alert-dark {
+    background: alertColor($col-dark);
+}
+
+
+.alert.alert-info {
+    background: alertColor($col-info);
+}
+
+.alert.alert-secondary {
+    background: alertColor($col-secondary);
+}
