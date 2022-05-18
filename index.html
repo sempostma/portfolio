@@ -1,0 +1,652 @@
+<html ng-app="portfolio" ng-strict-di>
+
+<head>
+    <title>Sem Postma</title>
+
+    <meta charset="utf-8">
+    <meta name="description" content="page">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="description" content="Sem Postma portfolio website">
+    <meta name="keywords"
+        content="Portfolio, Website, Projects, Projecten, Contact, Developer, Ontwikkelaar, Applicatie, Website, App, Programmeren, Programming, Code">
+    <meta name="author" content="Sem Postma">
+    <meta name="designer" content="Sem Postma">
+    <link rel="author" href="humans.txt">
+    <link rel="canonical" href="/" />
+
+    <style>
+        html {
+            background-color: #211E2F;
+        }
+    </style>
+
+    <script>
+        (function () {
+            var style = "html.loading { background: #211E2F; } html.before::after { content: ' '; position:fixed; z-index: 9998; top:-1px;left:-1px;right:-1px;bottom:-1px; } html.loading::after, html.dloading::after { content: url(\"data:image/svg+xml;base64,PHN2ZyBpZD0ibG9hZGluZ0FuaW1hdGlvbiIgaGVpZ2h0PSIxMjAiIHdpZHRoPSIxMjAiIA0KICAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgDQogICAgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCAxMjAgMTIwIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxMjAgMTIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCiAgICA8Y2lyY2xlIGlkPSJjMSIgY3g9IjMwIiBjeT0iNjAiIHI9IjEiIC8+DQogICAgPGNpcmNsZSBpZD0iYzIiIGN4PSI2MCIgY3k9IjYwIiByPSIxIiAvPg0KICAgIDxjaXJjbGUgaWQ9ImMzIiBjeD0iOTAiIGN5PSI2MCIgcj0iMSIgLz4NCiAgICA8c3R5bGU+DQogICAgICAgIGNpcmNsZSB7DQogICAgICAgICAgICBzdHJva2U6ICNmZmY7DQogICAgICAgICAgICBmaWxsOiAjZmZmOw0KICAgICAgICAgICAgc3Ryb2tlLXdpZHRoOiAwOw0KICAgICAgICAgICAgZGlzcGxheTogYWJzb2x1dGU7DQogICAgICAgICAgICBhbmltYXRpb246IHNjYWxlIDYwMG1zIGVhc2UgMHMgaW5maW5pdGUgYWx0ZXJuYXRlOyAgICAgICAgIA0KICAgICAgICB9DQogICAgICAgICNjMSB7DQogICAgICAgICAgICBhbmltYXRpb24tZGVsYXk6IDBzOw0KICAgICAgICB9DQogICAgICAgICNjMiB7DQogICAgICAgICAgICBhbmltYXRpb24tZGVsYXk6IDIwMG1zOw0KICAgICAgICB9DQogICAgICAgICNjMyB7DQogICAgICAgICAgICBhbmltYXRpb24tZGVsYXk6IDQwMG1zOw0KICAgICAgICB9DQogICAgICAgIEBrZXlmcmFtZXMgc2NhbGUgew0KICAgICAgICAgICAgZnJvbSB7IHN0cm9rZS13aWR0aDogMDsgfQ0KICAgICAgICAgICAgdG8geyBzdHJva2Utd2lkdGg6IDIwcHg7IH0NCiAgICAgICAgfQ0KDQogICAgICAgICNsb2FkaW5nQW5pbWF0aW9uIHsNCiAgICAgICAgICAgIA0KICAgICAgICB9DQo8L3N0eWxlPg0KPC9zdmc+DQo=\"); position: fixed; display: block; top: 50%; left: 50%; margin-top: -60px; margin-left: -60px; width: 120px; height: 120px; z-index: 9999; } html.loading, html.loading > body { overflow: hidden; } html.loading > body { opacity: 0; }"
+            var elem = document.createElement('style');
+            elem.innerHTML = style;
+            document.head.appendChild(elem);
+            var classesStr = document.documentElement.getAttribute('class') || '';
+            document.documentElement.setAttribute('class', (classesStr += ' loading').trim());
+            window.addEventListener('load', removeLoadingScreen);
+            function removeLoadingScreen() {
+                var classes = (document.documentElement.getAttribute('class') || '').split(' ');
+                for (var i = 0; i < classes.length; i++) {
+                    if (classes[i] === 'loading')
+                        classes[i] = 'loaded';
+                }
+                document.documentElement.setAttribute('class', classes.join(' ').trim());
+            }
+        })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"
+        integrity="sha256-issEYoOUmTZW2tEfIwKfxq0Tz5DPqh9d+JFQsnJ2hKk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pageable/0.6.1/pageable.min.js"
+        integrity="sha512-qvnhFfixxFc8QFEh+++jCWb6FWwfQPv/KqzLuUz87nniV5zyK5cRCaRrG3+nQTvFc0c0IcGrPqQrdO8POa0idQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.7.4/d3.js"
+        integrity="sha256-T9kqMOI1/xyTd99UNzG2DfAhlV2luNGwDJTeCCDLlFs=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.0/d3-legend.min.js"
+        integrity="sha256-H4CXotFkAa5NxP/5qePANSRBCtwIkK21wPLys2/x3xA=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pageable/0.6.1/pageable.min.css"
+        integrity="sha512-9YZhK42LCJNXO05G0lXN0kS+oJ1TxUsrHOiyF6V87HbHt/jmvsE/IeX66By51KnVUDiwmwsQbJqnMi7dGjoM6w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="apple-touch-icon" sizes="57x57" href="./apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+</head>
+
+<body>
+    <!--[if IE]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div id="particles-js" class="fixed-background"></div>
+    <div id="container">
+        <div data-anchor="home" id="home">
+            <div class="page">
+                <div class="container text-white">
+                    <div class="me-row h-100">
+                        <div class="me-col-left">
+                            <div class="page-animation d-100">
+                                <h1>
+                                    <span class="text-secondary">&lt;</span><span class="text-primary">Hello
+                                        World</span><span class="text-secondary">/&gt;</span>
+                                </h1>
+                            </div>
+                            <div class="page-animation d-200">
+                                <h2 class="mb-1">Sem Postma</h2>
+                            </div>
+                            <div class="page-animation d-300">
+                                <p class="lead">Software Engineer, Developer and Problem Solver</p>
+                            </div>
+                            <div class="page-animation d-800">
+                              <a class="text-secondary" href="mailto:sem@sem-postma.nl">sem@sem-postma.nl</a><br />
+                              <a class="text-secondary" href="tel:+31640566006">+31 (0)6 405 660 04</a><br />
+                              <br />
+                            </div>
+                            <div class="links">
+                                <a title="sem@sem-postma.com" target="_blank" href="mailto:sem@sem-postma.com" class="link-btn page-animation d-700">
+                                    <span class="zmdi zmdi-email"></span>
+                                </a>
+                                <a target="_blank" href="https://github.com/sempostma" class="link-btn page-animation d-600">
+                                    <span class="zmdi zmdi-github"></span>
+                                </a>
+                                <a target="_blank" href="https://www.codewars.com/users/Afirus" class="link-btn page-animation d-500">
+                                    <span class="zmdi zmdi-code"></span>
+                                </a>
+                                <a class="arrow-link page-animation d-400" href="#about">
+                                    <div class="wrapper">
+                                        <svg viewBox="0 0 200 200" width="100" height="100"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <line y2="170" x2="100" y1="30" x1="100.217391" stroke-width="5"
+                                                stroke="#fff" />
+                                            <line y2="30" x2="100" y1="70" x1="59.782609" stroke-width="5"
+                                                stroke="#fff" />
+                                            <line stroke="#fff" y2="28" x2="98.5" y1="70" x1="140" stroke-width="5" />
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
+                        <div class="me-col-right">
+                            <div class="glitch profile-image-wrapper">
+                                <img class="profile-image page-animation" src="./images/profile.jpg"
+                                    alt="Profile image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div data-anchor="about" id="about">
+            <div class="page">
+                <div class="container text-white">
+                    <div class="me-row h-100">
+                        <div class="me-col-left">
+                            <h1 class="page-animation d-100"><span class="text-secondary">.</span><span
+                                    class="text-primary">who am i?</span></h1>
+
+                            <p class="lead"><span class="page-animation d-block d-300">I am a largely self-taught
+                                    software
+                                    engineer. It may
+                                    sound cliché, but I believe in performance and value being able to deliver concrete
+                                    results. My ultimate goal is to be the best all-round developer.<br></span> <span
+                                    class="page-animation d-block d-500">In the last 6 years as
+                                    a consultant and freelance developer I have gained a huge amount of experience in
+                                    everything from Project management, Web3, DevOps and Hybrid cloud to IoT, IaC, WCAG
+                                    2.1
+                                    compliance and Serverless to name a few. Software development is my job, hobby and
+                                    passion. <br><span class="page-animation d-block d-700">Uncle Bob’s (Robert C.
+                                        Martin) books
+                                        are on my nightstand.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-anchor="values" id="values">
+            <div class="page">
+                <div class="container text-white">
+                    <div class="me-row h-100">
+                        <div class="me-col-left">
+                            <h1 class="page-animation d-100"><span class="text-secondary">.</span><span
+                                    class="text-primary">my values</span></h1>
+
+                            <p class="lead page-animation d-200">I think it’s important to always be myself and to be
+                                honest. This impacts everything I do, from the way I work to how I treat people.
+
+                            <ul class="page-animation d-300">
+                                <li>I am open, reliable and down to earth</li>
+                                <li>I am passionate</li>
+                                <li>I strive to be the best</li>
+                                <li>I stimulate people by sharing my passion</li>
+                                <li>I am result-oriented</li>
+                                <li>I’m not afraid to throw myself in the deep end</li>
+                                <li>I’m open to criticism</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-anchor="recommendations" id="recommendations">
+            <div class="page">
+                <div class="container text-white">
+                    <div class="me-row h-100">
+                        <div class="me-col-left">
+                            <h1 class="page-animation d-100"><span class="text-secondary">.</span><span
+                                    class="text-primary">recommendations</span></h1>
+
+                            <blockquote class="page-animation d-200">
+                                “Sem was very patient through the entire process. He was quick to understand the
+                                requirements and picked up with minimal explanations needed. Perfect team member to work
+                                with. Will hire again.”
+                                <br>
+                                <span class="text-secondary"> - Mridul Pandey (Inventam)</span>
+                            </blockquote>
+
+                            <blockquote class="page-animation d-300">
+                                “Amazing work!”
+                                <br>
+                                <span class="text-secondary"> - Hansen Wang</span>
+                            </blockquote>
+
+                            <blockquote class="page-animation d-400">
+                                “Thanks to Sem Postma, who was able to translate my wishes into a clear and transparent
+                                website.”
+                                <br>
+                                <span class="text-secondary"> - Helga Beekers</span>
+                            </blockquote>
+
+                            <blockquote class="page-animation d-500">
+                                “Very nice to work with Sem. Sem is quick to pick up what I want. He really listens and
+                                translates that into his work.”
+                                <br>
+                                <span class="text-secondary"> - Claudia Mulder</span>
+                            </blockquote>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-anchor="skills" id="skills">
+            <div class="page">
+                <div class="container text-white">
+                    <div class="me-row h-100">
+                        <div class="me-col-left">
+                            <h1 class="page-animation"><span class="text-secondary">.</span><span
+                                    class="text-primary">skills</span></h1>
+
+                            <p class="lead page-animation d-300">
+                                Node.js, AWS Certified Solution Architect, Firebase, Swagger, noSQL,
+                                RDBMS, .NET, Agile, Redux, Service Integration, Containerization, CI, SaaS, APM, <span
+                                    class="text-secondary">English</span> and <span class="text-secondary">Dutch</span>
+                            </p>
+
+                        </div>
+                        <div class="me-col-right">
+                            <div class="glitch profile-image-wrapper">
+                                <img class="profile-image page-animation" src="./images/me-as-a-child.jpg"
+                                    alt="Child picture">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-anchor="skill-chart" id="skill-chart">
+            <div class="fixed-page text-white">
+                <svg id="teck-stack-svg" width="100%" height="100%" font-family="sans-serif" font-size="10"
+                    text-anchor="middle"></svg>
+            </div>
+        </div>
+        <div data-anchor="interests" id="interests">
+            <div class="page">
+                <div class="container text-white">
+                    <div class="me-row h-100">
+                        <div class="me-col-left">
+                            <h1 class="page-animation"><span class="text-secondary">.</span><span
+                                    class="text-primary">interests</span></h1>
+
+                            <p class="lead page-animation d-300">
+                                Software Development Methodologies,
+                                Concurrency, Parallelism, Reactive Programming,
+                                JAM Stack, REST, PWA’s, SPA’s, Design Patterns
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- {% if page.cases contains 'game' or page.cases contains 'frontend' %} -->
+        <div data-anchor="case-atc-manager-2" id="case-atc-manager-2">
+            <div class="page">
+                <div class="container text-white">
+                    <div class="case-row h-100">
+                        <div class="case-col-left">
+                            <h1 class="page-animation d-100 nowrap"><span class="text-secondary">.</span><span
+                                    class="text-primary">atc manager 2</span></h1>
+
+                            <p class="page-animation d-200">
+                                <span class="text-secondary">Case</span><br><br>
+
+                                Built with <span class="text-secondary">Preact</span><br><br>
+
+                                ATC Manager 2 is a web based air traffic control game. Manage airspace of busy airports
+                                like Schiphol or Heathrow in a realistic simulator.
+                            </p>
+                        </div>
+                        <div class="case-col-right page-animation">
+                            <div class="glitch case-image-wrapper">
+                                <img class="case-image modal-image" src="./images/case1.png" alt="ATC Manager 2 Case">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- {% endif %} -->
+
+        <!-- {% if page.cases contains 'fullstack' or page.cases contains 'frontend' or page.cases contains 'backend' %} -->
+        <div data-anchor="laika-cms-case" id="laika-cms-case">
+            <div class="page">
+                <div class="container text-white">
+                    <div class="case-row h-100">
+                        <div class="case-col-left">
+                            <h1 class="page-animation d-100"><span class="text-secondary">.</span><span
+                                    class="text-primary">laika cms</span></h1>
+
+                            <p class="page-animation d-200">
+                                <span class="text-secondary">Case</span><br><br>
+
+                                Built with <span class="text-secondary">React, Redux, Express, PostgreSQL, Redis,
+                                    AWS</span><br><br>
+
+                                A custom built content management system.
+                            </p>
+                        </div>
+                        <div class="case-col-right page-animation">
+                            <div class="glitch case-image-wrapper">
+                                <img class="case-image modal-image" src="./images/case2.jpg" alt="Laika CMS">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- {% endif %} -->
+
+        <!-- {% if page.cases contains 'wordpress' or page.cases contains 'frontend' or page.cases contains 'backend' %} -->
+        <div data-anchor="blue-nl-case" id="blue-nl-case">
+            <div class="page">
+                <div class="container text-white">
+                    <div class="case-row h-100">
+                        <div class="case-col-left">
+                            <h1 class="page-animation d-100"><span class="text-secondary">.</span><span
+                                    class="text-primary">blue.nl</span></h1>
+
+                            <p class="page-animation d-200">
+                                <span class="text-secondary">Case</span><br><br>
+
+                                Built with <span class="text-secondary">PHP</span><br><br>
+
+                                Our client wanted us to implement a Adobe XD design.<br><br>
+
+                                This website was very tricky to implement because it has a lot of absolutely positioned
+                                elements. That made it a very interesting and fun project to work on.<br><br>
+
+                                The client is very happy with the result.
+
+                                <a href="https://bluen.nl/" target="_blank">blue.nl</a>
+                            </p>
+                        </div>
+                        <div class="case-col-right page-animation">
+                            <div class="glitch case-image-wrapper">
+                                <img class="case-image modal-image" src="./images/bluen.nl.jpg" alt="Bluen.nl Case">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- {% endif %} -->
+
+        <!-- {% if page.cases contains 'ios' or page.cases contains 'frontend' or page.cases contains 'android' %} -->
+        <div data-anchor="kadaster-kaart-case" id="kadaster-kaart-case">
+            <div class="page">
+                <div class="container text-white">
+                    <div class="case-row h-100">
+                        <div class="case-col-left">
+                            <h1 class="page-animation d-100"><span class="text-secondary">.</span><span
+                                    class="text-primary">kadaster kaart</span></h1>
+
+                            <p class="page-animation d-200">
+                                <span class="text-secondary">Case</span><br><br>
+
+                                Built with <span class="text-secondary">Cordova</span><br><br>
+
+                                With the "Kadaster Kaart" App you can easily look up information about plots that are
+                                registered with the Land Registry.<br><br>
+
+                                You can view information about locations, berths, residences, properties and plots. The
+                                App has an easy-to-use interface.
+                            </p>
+                        </div>
+                        <div class="case-col-right page-animation">
+                            <div class="glitch case-image-wrapper">
+                                <img class="case-image modal-image" src="./images/kadaster-kaart.png" alt="Kadaster kaart case">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- {% endif %} -->
+
+        <!-- {% if page.cases contains 'wordpress' or page.cases contains 'frontend' %} -->
+        <div data-anchor="duurzaamgeertruidenberg-nl-case" id="duurzaamgeertruidenberg-nl-case">
+            <div class="page">
+                <div class="container text-white">
+                    <div class="case-row h-100">
+                        <div>
+                            <h1 class="page-animation d-100"><span class="text-secondary">.</span><span
+                                    class="text-primary"
+                                    style="word-break: break-word;">duurzaamgeertruidenberg.nl</span></h1>
+
+                            <p class="page-animation d-200">
+                                <span class="text-secondary">Case</span><br><br>
+
+                                Built with <span class="text-secondary">PHP</span><br><br>
+
+                                The client’s goal was to create a Municipality website for sustainability.<br><br>
+
+                                With the adobe XD design in hand, I implemented everything accurately.
+                            </p>
+                        </div>
+                        <!-- <div class="case-col-right page-animation">
+                            <div class="glitch case-image-wrapper">
+                                <img class="case-image modal-image" src="./images/duurzaam-geertruidenberg.jpg" alt="Duurzaamgeertruidenberg case">
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div data-anchor="duurzaamgeertruidenberg-nl-case-continued" id="duurzaamgeertruidenberg-nl-case-continued">
+            <div class="page">
+                <div class="container text-white">
+                    <div class="case-row h-100">
+                        <div class="case-col-left">
+                            <p class="page-animation d-200">
+                                The client was very happy with the end-result. Visually the website looks great and the
+                                designer was pleased that we implemented every small animation and detail
+                                correctly.<br><br>
+
+                                The website is also WCAG 2.1 compliant.
+
+                                <a href="https://duurzaamgeertruidenberg.nl"
+                                    target="_blank">duurzaamgeertruidenberg.nl</a>
+                            </p>
+                        </div>
+                        <div class="case-col-right page-animation">
+                            <div class="glitch case-image-wrapper">
+                                <img class="case-image modal-image" src="./images/duurzaam-geertruidenberg.jpg"
+                                    alt="Duurzaamgeertruidenberg case">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- {% endif %} -->
+
+        <!-- {% if page.cases contains 'ios' or page.cases contains 'android' %} -->
+        <div data-anchor="imagineers-by-night-case" id="imagineers-by-night-case">
+            <div class="page">
+                <div class="container text-white">
+                    <div class="case-row h-100">
+                        <div class="case-col-left">
+                            <h1 class="page-animation d-100"><span class="text-secondary">.</span><span
+                                    class="text-primary">imagineers by night</span></h1>
+
+                            <p class="page-animation d-200">
+                                <span class="text-secondary">Case</span><br><br>
+
+                                Built with <span class="text-secondary">Kotlin</span> and <span
+                                    class="text-secondary">Swift</span><br><br>
+
+                                The goal for this project was to design an app that could help people find their way
+                                across the city of Breda during the Imagineers by Night event.
+                            </p>
+                        </div>
+                        <div class="case-col-right page-animation">
+                            <div class="glitch case-image-wrapper">
+                                <img class="case-image modal-image" src="./images/imagineers.jpg" alt="Imagineers by night case">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div data-anchor="imagineers-by-night-case-continued" id="imagineers-by-night-case-continued">
+            <div class="page">
+                <div class="container text-white">
+                    <div class="case-row h-100">
+                        <div class="case-col-left">
+                            <p class="page-animation d-100">
+                                The app is written in Kotlin (Android) and Swift (iOS) and keeps to the redux state
+                                management principles.<br><br>
+
+                                I have personally contributed to the project by expanding functionality and
+                                transitioning the app to use the new JSON:API/OpenAPI backend.
+                            </p>
+                        </div>
+                        <div class="case-col-right page-animation">
+                            <div class="glitch case-image-wrapper">
+                                <img class="case-image modal-image" src="./images/imagineers.jpg" alt="Imagineers by night case">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- {% endif %} -->
+
+        <!-- {% if page.cases contains 'ios' or page.cases contains 'android' or page.cases contains 'frontend' %} -->
+        <div data-anchor="e-learning-case" id="e-learning-case">
+            <div class="page">
+                <div class="container text-white">
+                    <div class="case-row h-100">
+                        <div class="case-col-left">
+                            <h1 class="page-animation d-100"><span class="text-secondary">.</span><span
+                                    class="text-primary">e-learning</span></h1>
+
+                            <p class="page-animation d-200">
+                                <span class="text-secondary">Case</span><br><br>
+
+                                Built with <span class="text-secondary">Ionic, Firebase, React, Node.js, Redux,
+                                    Express</span> and <span class="text-secondary">New Relic</span><br><br>
+
+                                The client was interested in creating a mobile application to complement her
+                                online-learning platform.<br><br>
+                            </p>
+                        </div>
+                        <div class="case-col-right page-animation">
+                            <div class="glitch case-image-wrapper">
+                                <img class="case-image modal-image" src="./images/higherspirit.png" alt="Higher spirit 1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div data-anchor="e-learning-case-continued" id="e-learning-case-continued">
+            <div class="page">
+                <div class="container text-white">
+                    <div class="case-row h-100">
+                        <div class="case-col-left">
+                            <p class="page-animation d-200">
+                                I have built this project from the ground up, integrating our own CMS, Firebase and the
+                                existing online-learning platform. I choose a hybrid cloud solution to get the best of
+                                both worlds. I used AWS for media processing and streaming of audio and video.<br><br>
+
+                                The project easily scaled up to hundreds of concurrent users or more during peak
+                                engagement.
+                            </p>
+                        </div>
+                        <div class="case-col-right page-animation">
+                            <div class="glitch case-image-wrapper">
+                                <img class="case-image modal-image" src="./images/higherspirit.png" alt="Higher spirit 2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- {% endif %} -->
+
+        <!-- {% if page.cases contains 'frontend' %} -->
+        <div data-anchor="ikverstaat-nl-case" id="ikverstaat-nl-case">
+            <div class="page">
+                <div class="container text-white">
+                    <div class="case-row h-100">
+                        <div class="case-col-left">
+                            <h1 class="page-animation d-100"><span class="text-secondary">.</span><span
+                                    class="text-primary">ikverstaat.nl</span></h1>
+
+                            <p class="page-animation d-200">
+                                <span class="text-secondary">Case</span><br><br>
+
+                                Built with <span class="text-secondary">Jekyll</span><br><br>
+
+                                My client wanted to improve his exposure in the online space. Our business designed a
+                                complete brand identity and I designed and implemented the website.
+
+                                Our customer was very happy with the ease with which he could make adjustments to the
+                                website.
+                            </p>
+                        </div>
+                        <div class="case-col-right page-animation">
+                            <div class="glitch case-image-wrapper">
+                                <img class="case-image modal-image" src="./images/ikverstaat.png" alt="Ikverstaat case">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- {% endif %} -->
+
+    <div id="imgmodal" class="modal">
+
+      <!-- The Close Button -->
+      <span class="close">&times;</span>
+    
+      <!-- Modal Content (The Image) -->
+      <img class="modal-content" id="img01">
+    </div>
+
+    <!-- Start of Async Drift Code -->
+    <script>
+        "use strict";
+
+        !function () {
+            var t = window.driftt = window.drift = window.driftt || [];
+            if (!t.init) {
+                if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+                t.invoked = !0, t.methods = ["identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on"],
+                    t.factory = function (e) {
+                        return function () {
+                            var n = Array.prototype.slice.call(arguments);
+                            return n.unshift(e), t.push(n), t;
+                        };
+                    }, t.methods.forEach(function (e) {
+                        t[e] = t.factory(e);
+                    }), t.load = function (t) {
+                        var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+                        o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
+                        var i = document.getElementsByTagName("script")[0];
+                        i.parentNode.insertBefore(o, i);
+                    };
+            }
+        }();
+        drift.SNIPPET_VERSION = '0.3.1';
+        drift.load('e8cckgu227kd');
+    </script>
+    <!-- End of Async Drift Code -->
+
+    <script src="./bundle/vendor.bundle.js"></script>
+    <script src="./bundle/main.bundle.js"></script>
+</body>
+
+</html>
