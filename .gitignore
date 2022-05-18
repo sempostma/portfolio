@@ -13,5 +13,3 @@ node_modules/
 bower_components/
 .idea
 *.log
-client/.jekyll-cache
-client/_site
