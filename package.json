@@ -8,7 +8,7 @@
     "start": "npm run dev",
     "dev": "webpack-dev-server --open",
     "deploy": "cross-env NODE_ENV=production npm run build && npm run gh-pages",
-    "gh-pages": "cd client && git init && git add . && git commit -am \"deploy\" && git fetch https://github.com/sempostma/portfolio.git gh-pages:gh-pages && git checkout gh-pages && git reset --hard master && git push https://github.com/sempostma/portfolio.git gh-pages:gh-pages && rm -rf .git && cd ..",
+    "gh-pages": "cd client && git init && git add . && git commit -am \"deploy\" && git fetch https://github.com/sempostma/portfolio.git gh-pages:gh-pages && git merge -s ours gh-pages --allow-unrelated-histories && git push https://github.com/sempostma/portfolio.git master:gh-pages && rm -rf .git && cd ..",
     "build": "webpack --config webpack.config.prod.js"
   },
   "author": "",
