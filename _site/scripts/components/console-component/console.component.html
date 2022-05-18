@@ -1,0 +1,18 @@
+<div data-ng-init="init()" class="window" data-name="mywindow" style="left:0px;top:0px;">
+    <div class="bar" draggable="true">
+        <div class="icon-container">
+            <div class="icon icon-red"></div>
+            <div class="icon icon-orange"></div>
+            <div class="icon icon-green"></div>
+        </div>
+        <div class="title">
+            <span class="title-label">{{$ctrl.name}}<span>
+        </div>
+    </div>
+    <div class="content" ng-click="$ctrl.consoleClickHandler($event)">
+        <div class="innerContent">
+            <pre>{{$ctrl.oldContent}}</pre>
+            <input ng-keypress="$ctrl.keyPressHandler($event)" ng-model="$ctrl.content" class="writable">
+        </div>
+    </div> 
+</div>

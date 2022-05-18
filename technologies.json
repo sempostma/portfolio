@@ -1,0 +1,513 @@
+[
+  {
+    "cat": "programming",
+    "name": "D3",
+    "value": 5,
+    "icon": "d3.svg",
+    "desc": "\n\t\tD3.js (or just D3 for Data-Driven Documents) is a JavaScript library for\n\t\tproducing dynamic, interactive data visualizations in web browsers.\n\t"
+  },
+  {
+    "cat": "programming",
+    "name": "Bootstrap",
+    "value": 100,
+    "icon": "bootstrap.svg",
+    "desc": "\n\t\tBootstrap is a free and open-source front-end web framework for designing websites\n\t\tand web applications.\n\t"
+  },
+  {
+    "cat": "framework",
+    "name": "ExpressJS",
+    "value": 90,
+    "icon": "expressjs.png",
+    "desc": "\n\t\tExpress.js, or simply Express, is a JavaScript framework designed for building web applications and APIs.\n\t"
+  },
+  {
+    "cat": "tool",
+    "name": "Yeoman",
+    "value": 10,
+    "icon": "yeoman.png",
+    "desc": "\n\t\tYeoman is an open source, command-line interface set of tools mainly used to generate\n\t\tstructure and scaffolding for new projects, especially in JavaScript and Node.js.\n\t"
+  },
+  {
+    "cat": "programming",
+    "name": "MongoDB",
+    "value": 10,
+    "icon": "mongodb.png",
+    "desc": "\n\t\tThe de-facto Database solution for JavaScript and Node.js applications. It is a light weight,\n\t\thigh performance NoSQL database and can be used for small and large websites.\n\t"
+  },
+  {
+    "cat": "framework",
+    "name": "Jekyll",
+    "value": 70,
+    "icon": "jekyll.png",
+    "desc": "Jekyll is a simple, blog-aware, static site generator for personal, project, or organization sites."
+  },
+  {
+    "cat": "language",
+    "name": "JavaScript",
+    "value": 100,
+    "icon": "javascript.png",
+    "desc": "\n\t\tJavaScript is the heart of modern Web front end development and essential element of any Single Page\n\t\tApplications."
+  },
+  {
+    "cat": "language",
+    "name": "SCSS",
+    "value": 30,
+    "icon": "sass.png",
+    "desc": "\n\t\tA CSS preprocessor.\n\t"
+  },
+  {
+    "cat": "language",
+    "name": "TypeScript2",
+    "value": 60,
+    "icon": "typescript.png",
+    "desc": "\n\t\tThe strict-typing flavor of ECMAScript, always requires a compiler to compile to vanilla JavaScript\n\t\tbut the type checking and other syntactical sugar are exceptional."
+  },
+  {
+    "cat": "tool",
+    "name": "BabelJS",
+    "value": 80,
+    "icon": "babel.png",
+    "desc": "\n\t\tThe de-facto tool to work with ECMAScript 6 and ReactJS nowadays.\n\t"
+  },
+  {
+    "cat": "tool",
+    "name": "ESLint",
+    "value": 40,
+    "icon": "eslint.svg",
+    "desc": "\n\t\tThe tool to check and validate JavaScript code when we develop and prevent potential issues with code.\n\t"
+  },
+  {
+    "cat": "tool",
+    "name": "GulpJS",
+    "value": 60,
+    "icon": "gulp.png",
+    "desc": "\n\t\tGulpJS is a task automation tools written for Node.js. It is among the most popular\n\t\tFront End and Node project automation tools nowadays\n\t"
+  },
+  {
+    "cat": "tool",
+    "name": "Webpack",
+    "value": 80,
+    "icon": "webpack.svg",
+    "desc": "\n\t\tA module bundler library that is becoming de-facto tool to use in ReactJS or SPA apps nowadays.\n\t"
+  },
+  {
+    "cat": "framework",
+    "name": "NodeJS",
+    "value": 90,
+    "icon": "nodejs.svg",
+    "desc": "\n\t\tNode.js is a cross-platform JavaScript runtime environment. \n\t\tNode.js allows creation of high performance and high concurrency websites with smaller footprint compared to\n\t\tother server-side solution.\n\t"
+  },
+  {
+    "cat": "programming",
+    "name": "jQuery",
+    "value": 60,
+    "icon": "jquery.png",
+    "desc": "\n\t\tDeprecated, because <a href='http://youmightnotneedjquery.com/' target='_blank'>youmightnotneedjquery.com</a>\n\t"
+  },
+  {
+    "cat": "programming",
+    "name": "Passport",
+    "value": 15,
+    "icon": "passportjs.svg",
+    "desc": "Passport is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based web application."
+  },
+  {
+    "cat": "programming",
+    "name": "DOTNETCore",
+    "value": 30,
+    "icon": "dotnetcore.svg",
+    "desc": ".NET Core is a general purpose development platform maintained by Microsoft and the .NET community on GitHub."
+  },
+  {
+    "cat": "programming",
+    "name": "DOTNET",
+    "value": 70,
+    "icon": "dotnet.svg",
+    "desc": ".NET Framework (pronounced dot net) is a software framework developed by Microsoft that runs primarily on Microsoft Windows."
+  },
+  {
+    "cat": "programming",
+    "name": "ASPDOTNET",
+    "value": 20,
+    "icon": "aspdotnet.svg",
+    "desc": "ASP.NET is an open-source server-side web application framework designed for web development to produce dynamic web pages."
+  },
+  {
+    "cat": "language",
+    "name": "C#",
+    "value": 80,
+    "icon": "csharp.svg",
+    "desc": "C# (pronounced as see sharp) is a multi-paradigm programming language encompassing strong typing, imperative, declarative, functional, generic, object-oriented (class-based), and component-oriented programming disciplines."
+  },
+  {
+    "cat": "framework",
+    "name": "Unity3D",
+    "value": 80,
+    "icon": "unity.png",
+    "desc": "Unity is a cross-platform game engine developed by the Danish-American company Unity Technologies for the development of games."
+  },
+  {
+    "cat": "framework",
+    "name": "Electron",
+    "value": 35,
+    "icon": "electron.svg",
+    "desc": "Electron (formerly known as Atom Shell) is an open-source framework created by Cheng Zhao, and now developed by GitHub."
+  },
+  {
+    "cat": "framework",
+    "name": "React",
+    "value": 80,
+    "icon": "react.png",
+    "desc": "In computing, React (sometimes styled React.js or ReactJS) is a JavaScript library for building user interfaces."
+  },
+  {
+    "cat": "language",
+    "name": "C",
+    "value": 25,
+    "icon": "c.png",
+    "desc": "C is a general-purpose, imperative computer programming language, supporting structured programming, lexical variable scope and recursion, while a static type system prevents many unintended operations."
+  },
+  {
+    "cat": "platform",
+    "name": "Heroku",
+    "value": 60,
+    "icon": "heroku.svg",
+    "desc": "Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud."
+  },
+  {
+    "cat": "language",
+    "name": "Go",
+    "value": 5,
+    "icon": "golang.svg",
+    "desc": "Go is an open source programming language that makes it easy to build simple, reliable, and efficient software."
+  },
+  {
+    "cat": "programming",
+    "name": "Angular",
+    "value": 40,
+    "icon": "angular.svg",
+    "desc": "Angular (commonly referred to as \"Angular2+\" or \"Angular2\") is a TypeScript-based open-source front-end web application platform led by the Angular Team at Google."
+  },
+  {
+    "cat": "programming",
+    "name": "AngularJS",
+    "value": 25,
+    "icon": "angularjs.png",
+    "desc": "AngularJS is what HTML would have been, had it been designed for building web-apps."
+  },
+  {
+    "cat": "language",
+    "name": "Clojure",
+    "value": 0,
+    "icon": "clojure.png",
+    "desc": "Clojure is a dynamic, general-purpose programming language, combining the approachability and interactive development of a scripting language with an efficient and robust infrastructure for multithreaded programming."
+  },
+  {
+    "cat": "programming",
+    "name": "Cordova",
+    "value": 100,
+    "icon": "cordova.svg",
+    "desc": "Apache Cordova enables software programmers to build applications for mobile devices using CSS3, HTML5, and JavaScript instead of relying on platform-specific APIs like those in Android, iOS, or Windows Phone."
+  },
+  {
+    "cat": "language",
+    "name": "CSS",
+    "value": 100,
+    "icon": "css.png",
+    "desc": "CSS is a language that describes the style of an HTML document."
+  },
+  {
+    "cat": "language",
+    "name": "HTML5",
+    "value": 100,
+    "icon": "html5.png",
+    "desc": "HTML5 is a markup language used for structuring and presenting content on the World Wide Web. It is the fifth and current major version of the HTML standard."
+  },
+  {
+    "cat": "language",
+    "name": "EJS",
+    "value": 30,
+    "icon": "ejs.png",
+    "desc": "EJS is a client-side templating language that was originally part of JavaScriptMVC, which has now been replaced by DoneJS."
+  },
+  {
+    "cat": "programming",
+    "name": "FabricJS",
+    "value": 10,
+    "icon": "fabricjs.png",
+    "desc": "Fabric.js is a powerful and simple. Javascript HTML5 canvas library. Fabric provides interactive object model on top of canvas element."
+  },
+  {
+    "cat": "language",
+    "name": "F#",
+    "value": 0,
+    "icon": "fsharp.png",
+    "desc": "F# is a mature, open source, cross-platform, functional-first programming language. It empowers users and organizations to tackle complex computing problems with simple, maintainable and robust code."
+  },
+  {
+    "cat": "language",
+    "name": "Haskell",
+    "value": 0,
+    "icon": "haskell.svg",
+    "desc": "Haskell is a standardized, general-purpose purely functional programming language, with non-strict semantics and strong static typing."
+  },
+  {
+    "cat": "tool",
+    "name": "Git",
+    "value": 40,
+    "icon": "git.svg",
+    "desc": "Git is a version control system for tracking changes in computer files and coordinating work on those files among multiple people. It is primarily used for source code management in software development."
+  },
+  {
+    "cat": "platform",
+    "name": "GitHub",
+    "value": 30,
+    "icon": "github.png",
+    "desc": "GitHub is a Web-based Git version control repository hosting service. It is mostly used for computer code."
+  },
+  {
+    "cat": "programming",
+    "name": "React Native",
+    "value": 0,
+    "icon": "react-native.png",
+    "desc": "React Native lets you build mobile apps using only JavaScript. It uses the same design as React, letting you compose a rich mobile UI from declarative components."
+  },
+  {
+    "cat": "language",
+    "name": "Rust",
+    "value": 0,
+    "icon": "rust.png",
+    "desc": "Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety."
+  },
+  {
+    "cat": "language",
+    "name": "SQL",
+    "value": 30,
+    "icon": "sql.png",
+    "desc": "SQL is a standard language for storing, manipulating and retrieving data in databases."
+  },
+  {
+    "cat": "tool",
+    "name": "SysML",
+    "value": 0,
+    "icon": "sysml.png",
+    "desc": "The Systems Modeling Language (SysML) is a general-purpose modeling language for systems engineering applications."
+  },
+  {
+    "cat": "tool",
+    "name": "UML",
+    "value": 20,
+    "icon": "uml.png",
+    "desc": "The Unified Modeling Language (UML) is a general-purpose, developmental, modeling language in the field of software engineering, that is intended to provide a standard way to visualize the design of a system."
+  },
+  {
+    "cat": "tool",
+    "name": "TSLint",
+    "value": 40,
+    "icon": "tslint.png",
+    "desc": "TSLint is an extensible static analysis tool that checks TypeScript code for readability, maintainability, and functionality errors."
+  },
+  {
+    "cat": "tool",
+    "name": "Visual Studio",
+    "value": 60,
+    "icon": "vs.png",
+    "desc": "Microsoft Visual Studio is an integrated development environment (IDE) from Microsoft. It is used to develop computer programs for Microsoft Windows, as well as web sites, web apps, web services and mobile apps."
+  },
+  {
+    "cat": "tool",
+    "name": "Visual Studio Code",
+    "value": 100,
+    "icon": "vscode.png",
+    "desc": "Visual Studio Code is a source code editor developed by Microsoft for Windows, Linux and macOS."
+  },
+  {
+    "cat": "programming",
+    "name": "Web Assembly",
+    "value": 0,
+    "icon": "webassembly.png",
+    "desc": "WebAssembly or wasm is a low-level bytecode format for in-browser client-side scripting, evolved from JavaScript."
+  },
+  {
+    "cat": "tool",
+    "name": "Xamarin",
+    "value": 10,
+    "icon": "xamarin.png",
+    "desc": "Xamarin is a Microsoft-owned San Francisco, California-based software company founded in May 2011 by the engineers that created Mono."
+  },
+  {
+    "cat": "language",
+    "name": "XML",
+    "value": 50,
+    "icon": "xml.png",
+    "desc": "Extensible Markup Language (XML) is a markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable."
+  },
+  {
+    "cat": "language",
+    "name": "XAML",
+    "value": 5,
+    "icon": "xaml.png",
+    "desc": "Extensible Application Markup Language is a declarative XML-based language developed by Microsoft that is used for initializing structured values and objects."
+  },
+  {
+    "cat": "tool",
+    "name": "NUnit",
+    "value": 5,
+    "icon": "nunit.png",
+    "desc": "NUnit is a unit-testing framework for all .Net languages."
+  },
+  {
+    "cat": "tool",
+    "name": "NDepend",
+    "value": 0,
+    "icon": "ndepend.png",
+    "desc": "NDepend is a static analysis tool for .NET managed code."
+  },
+  {
+    "cat": "tool",
+    "name": "OnsenUI",
+    "icon": "onsenui.png",
+    "value": 70,
+    "desc": "The most beautiful and efficient way to develop HTML5 hybrid and mobile web apps."
+  },
+  {
+    "cat": "platform",
+    "name": "Firebase",
+    "icon": "firebase.svg",
+    "value": 70,
+    "desc": "Firebase is Google's mobile platform that helps you quickly develop high-quality apps and grow your business."
+  },
+  {
+    "cat": "programming",
+    "name": "RxJs",
+    "icon": "rxjs.svg",
+    "value": 10,
+    "desc": "RxJS is a library for reactive programming using Observables, to make it easier to compose asynchronous or callback-based code."
+  },
+  {
+    "cat": "language",
+    "name": "C++",
+    "icon": "cpp.svg",
+    "value": 10,
+    "desc": "C++ is a general-purpose programming language. It has imperative, object-oriented and generic programming features."
+  },
+  {
+    "cat": "language",
+    "name": "PHP",
+    "icon": "php.png",
+    "value": 10,
+    "desc": "PHP is a server-side scripting language designed for web development but also used as a general-purpose programming language."
+  },
+  {
+    "cat": "platform",
+    "name": "Wordpress",
+    "icon": "wordpress.png",
+    "value": 5,
+    "desc": "WordPress is a free and open-source content management system (CMS) based on PHP and MySQL."
+  },
+  {
+    "cat": "language",
+    "name": "Java",
+    "icon": "java.svg",
+    "value": 15,
+    "desc": "Java is a general-purpose computer programming language that is concurrent, class-based, object-oriented."
+  },
+  {
+    "cat": "language",
+    "name": "Pug",
+    "icon": "pug.svg",
+    "value": 40,
+    "desc": "Pug is a high-performance template engine heavily influenced by Haml and implemented with JavaScript for Node.js and browsers."
+  },
+  {
+    "cat": "framework",
+    "name": "Redux",
+    "icon": "redux.svg",
+    "value": 40,
+    "desc": "Redux is a predictable state container for JavaScript apps."
+  },
+  {
+    "cat": "framework",
+    "name": "Preact",
+    "icon": "preact.svg",
+    "value": 70,
+    "desc": "Fast 3kB alternative to React with the same modern API."
+  },
+  {
+    "cat": "tool",
+    "name": "Forestry.io",
+    "icon": "forestry.jpg",
+    "value": 30,
+    "desc": "A content management system for static sites built with Hugo and Jekyll."
+  },
+  {
+    "cat": "tool",
+    "name": "PostCSS",
+    "icon": "postcss.svg",
+    "value": 30,
+    "desc": "Transform CSS with the power of JavaScript. Auto-prefixing, future CSS syntaxes, modules, linting and more are possible.."
+  },
+  {
+    "cat": "tool",
+    "name": "NPM",
+    "icon": "npm.svg",
+    "value": 100,
+    "desc": "npm is a package manager for the JavaScript programming language. It is the default package manager for the JavaScript runtime environment Node.js."
+  },
+  {
+    "cat": "tool",
+    "name": "CMake",
+    "icon": "cmake.svg",
+    "value": 30,
+    "desc": "CMake is an open-source, cross-platform family of tools designed to build, test and package software."
+  },
+  {
+    "cat": "platform",
+    "name": "Monaca",
+    "icon": "monaca.jpg",
+    "value": 10,
+    "desc": "Give Power to Your Cordova Apps. Monaca supercharges Cordova app development with easy to use tools, services and UI framework."
+  },
+  {
+    "cat": "programming",
+    "name": "Material-UI",
+    "icon": "material-ui.svg",
+    "value": 20,
+    "desc": "React components that implement Google's Material Design."
+  },
+  {
+    "cat": "programming",
+    "name": "PostgreSQL",
+    "icon": "postgres.svg",
+    "value": 20,
+    "desc": "PostgreSQL is an open-source relational database management system (RDBMS) emphasizing extensibility and standards compliance."
+  },
+  {
+    "cat": "framework",
+    "name": "GatsbyJS",
+    "icon": "gatsby.svg",
+    "value": 60,
+    "desc": "Blazing fast modern site generator for React. Go beyond static sites: build blogs, ecommerce sites, full-blown apps, and more with Gatsby."
+  },
+  {
+    "cat": "programming",
+    "name": "GraphQL",
+    "icon": "graphql.svg",
+    "value": 40,
+    "desc": "GraphQL is a query language for your API, and a server-side runtime for executing queries by using a type system you define for your data."
+  },
+  {
+    "cat": "platform",
+    "name": "Netlify",
+    "icon": "netlify.svg",
+    "value": 20,
+    "desc": "Netlify builds, deploys and hosts your front-end."
+  },
+  {
+    "cat": "platform",
+    "name": "Cloudflare",
+    "icon": "cloudflare.svg",
+    "value": 60,
+    "desc": "The Web Performance & Security Company."
+  }
+]
