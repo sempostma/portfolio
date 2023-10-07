@@ -11,7 +11,7 @@
     "gh-pages": "cd client && git init && git add . && git commit -am \"deploy\" && git fetch https://github.com/sempostma/portfolio.git gh-pages:gh-pages && git merge -s ours gh-pages --allow-unrelated-histories && git push https://github.com/sempostma/portfolio.git master:gh-pages && rm -rf .git && cd ..",
     "build": "webpack --config webpack.config.prod.js"
   },
-  "author": "",
+  "author": "Sem Postma",
   "license": "MIT",
   "dependencies": {
     "angular": "^1.8.3",
