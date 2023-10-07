@@ -1,0 +1,87 @@
+.btn {
+    appearance: none;
+    position: relative;
+    user-select: none;
+    display: inline;
+    border-style: solid;
+    border-color: $col-primary;
+    border-width: 2px;
+    padding: 18px 46px;
+    background: none;
+    margin: 4px;
+    z-index: 0;
+    font-family: 'JetBrains Mono', monospace;
+    color: $col-primary;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0ms 30ms linear;
+    border-spacing: 1;
+    line-height: 1.42rem;
+    outline: none;
+    
+}
+.btn::before {
+    
+    z-index: -1;
+    content: " ";
+    top: 100%;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    position: absolute;
+    transition: top 100ms ease-out;
+    background: $col-primary;
+}
+.btn:active, .btn:hover, .btn.active {
+    color: $col-white!important;
+}
+.btn:active::before, .btn:hover::before, .btn.active::before {
+    top: -1px;
+}
+
+.btn.white:active, .btn.white:hover, .btn.white.active {
+    color: #474c55!important; // Using important is important.
+}
+
+// Fix issue that occurs when the button is pressed off but it still shows active because the users is still hovering
+.btn:focus:hover:not(.active) {
+    color: $col-primary!important; // Using important is important.;
+}
+.btn.secondary:hover:focus:not(.active) {
+    color: $col-secondary!important; // Using important is important.;
+}
+.btn.dark:focus:hover:not(.active) {
+    color: $col-dark!important; // Using important is important.;
+}
+.btn.danger:focus:hover:not(.active) {
+    color: $col-danger!important; // Using important is important.;
+}
+.btn.default:focus:hover:not(.active) {
+    color: $col-default!important; // Using important is important.;
+}
+.btn.info:focus:hover:not(.active) {
+    color: $col-info!important; // Using important is important.;
+}
+.btn.warning:focus:hover:not(.active) {
+    color: $col-warning!important; // Using important is important.;
+}
+.btn.white:focus:hover:not(.active) {
+    color: $col-white!important;
+}
+.btn:focus:hover:not(.active)::before {
+    top: 100%;
+}
+// Endfix
+
+.btn-sm {
+    padding: 9px 23px;
+    margin: 2px;
+}
+
+.btn-xs {
+    padding: 2px 16px;
+    margin: 1px;
+}
+
+
+// #474c55

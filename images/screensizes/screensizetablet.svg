@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 841.9 595.3" style="enable-background:new 0 0 841.9 595.3;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#84847E;stroke-width:3;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#67B439;stroke-width:3;stroke-miterlimit:10;}
+	.st2{fill:#84847E;stroke:#84847E;stroke-width:3;stroke-miterlimit:10;}
+	.st3{opacity:0.9;fill:#BABAB1;stroke:#BABAB1;stroke-width:3;stroke-miterlimit:10;}
+</style>
+<g id="tablet">
+	<g id="XMLID_13_">
+		<path id="XMLID_1_" class="st0" d="M583.8,373.5H258.1c-6.6,0-12-5.4-12-12v-180c0-6.6,5.4-12,12-12h325.6c6.6,0,12,5.4,12,12v180
+			C595.8,368.1,590.4,373.5,583.8,373.5z"/>
+		<rect id="XMLID_2_" x="283" y="182.6" class="st0" width="291.9" height="177.8"/>
+		<path id="XMLID_3_" class="st0" d="M263.3,291.5L263.3,291.5c-3.3,0-6.1-2.7-6.1-6.1v-21.2c0-3.3,2.7-6.1,6.1-6.1l0,0
+			c3.3,0,6.1,2.7,6.1,6.1v21.2C269.4,288.8,266.6,291.5,263.3,291.5z"/>
+		<path id="XMLID_4_" class="st1" d="M321.1,255.4l-4.5-0.9c-4.8-1-8.8-4.5-10.4-9.2l-2-6.1c-1.6-4.7-0.5-9.8,2.8-13.5l4.8-5.4
+			c2.9-3.3,7.4-4.8,11.7-3.9l6.2,1.3c5.4,1.1,9.8,5,11.5,10.2l1.8,5.5c1.5,4.5,0.5,9.4-2.6,12.9l-3.3,3.7
+			C333.1,254.5,327,256.6,321.1,255.4z"/>
+		<polyline id="XMLID_5_" class="st1" points="317,238 324.3,244.8 329.9,224.2 		"/>
+		<rect id="XMLID_6_" x="397.8" y="194.8" class="st2" width="161.3" height="18.7"/>
+		<rect id="XMLID_7_" x="397.8" y="222.3" class="st3" width="161.3" height="70.9"/>
+		<rect id="XMLID_21_" x="397.8" y="302.4" class="st3" width="161.3" height="18.2"/>
+		<rect id="XMLID_22_" x="397.8" y="332.1" class="st3" width="161.3" height="18.2"/>
+	</g>
+</g>
+<g id="phone">
+</g>
+<g id="laptop">
+</g>
+</svg>
