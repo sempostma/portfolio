@@ -154,11 +154,32 @@
     "desc": "Firebase is Google's mobile platform that helps you quickly develop high-quality apps and grow your business."
   },
   {
+    "cat": "platform",
+    "name": "AWS",
+    "icon": "aws.svg",
+    "value": 100,
+    "desc": "AWS provides on-demand cloud computing platforms and APIs."
+  },
+  {
+    "cat": "platform",
+    "name": "Serverless",
+    "icon": "serverless.svg",
+    "value": 100,
+    "desc": "Serverless provides a comprehensive solution for deploying and managing serverless applications."
+  },
+  {
     "cat": "programming",
     "name": "RxJs",
     "icon": "rxjs.svg",
     "value": 10,
     "desc": "RxJS is a library for reactive programming using Observables, to make it easier to compose asynchronous or callback-based code."
+  },
+  {
+    "cat": "programming",
+    "name": "Flutter",
+    "icon": "flutter.svg",
+    "value": 50,
+    "desc": "Flutter is an open-source UI software development kit created by Google. It is used to develop cross platform applications from a single codebase."
   },
   {
     "cat": "language",
@@ -192,14 +213,21 @@
     "cat": "programming",
     "name": "PostgreSQL",
     "icon": "postgres.svg",
-    "value": 20,
+    "value": 50,
     "desc": "PostgreSQL is an open-source relational database management system (RDBMS) emphasizing extensibility and standards compliance."
+  },
+  {
+    "cat": "programming",
+    "name": "PHP",
+    "icon": "php.svg",
+    "value": 20,
+    "desc": "PHP is a general-purpose scripting language geared towards web development."
   },
   {
     "cat": "programming",
     "name": "MySQL",
     "icon": "mysql.svg",
-    "value": 20,
+    "value": 50,
     "desc": "MySQL is an open-source relational database management system."
   },
   {
