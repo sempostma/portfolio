@@ -1,0 +1,10 @@
+title: Sem Postma
+author: Sem Postma
+url: sem-postma.com
+exclude: 
+  - Gemfile
+  - Gemfile.lock
+  - CNAME
+  - client/style
+  - client/scripts
+includes_dir: .
