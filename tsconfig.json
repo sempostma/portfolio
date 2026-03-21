@@ -16,5 +16,5 @@
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "src/**/*.d.ts", "plugins", "vite.config.ts", "sitemap.ts"],
+  "include": ["src", "src/**/*.d.ts", "plugins", "vite.config.ts", "sitemap.ts"]
 }

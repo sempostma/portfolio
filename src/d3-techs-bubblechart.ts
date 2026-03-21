@@ -52,26 +52,47 @@ let currentSimulation: d3.Simulation<BubbleNode, undefined> | null = null;
 
 // Extended color scheme to replace the removed schemeCategory20
 const extendedColorScheme = [
-  '#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd',
-  '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf',
-  '#aec7e8', '#ffbb78', '#98df8a', '#ff9896', '#c5b0d5',
-  '#c49c94', '#f7b6d2', '#c7c7c7', '#dbdb8d', '#9edae5'
+  '#1f77b4',
+  '#ff7f0e',
+  '#2ca02c',
+  '#d62728',
+  '#9467bd',
+  '#8c564b',
+  '#e377c2',
+  '#7f7f7f',
+  '#bcbd22',
+  '#17becf',
+  '#aec7e8',
+  '#ffbb78',
+  '#98df8a',
+  '#ff9896',
+  '#c5b0d5',
+  '#c49c94',
+  '#f7b6d2',
+  '#c7c7c7',
+  '#dbdb8d',
+  '#9edae5',
 ];
 
-const d3Data = d3.json<TechData[]>('./technologies.json').then((data) => data?.map(d => ({
-  ...d,
-  icon: '/images/techs/' + d.icon,
-})));
+const d3Data = d3.json<TechData[]>('./technologies.json').then(data =>
+  data?.map(d => ({
+    ...d,
+    icon: '/images/techs/' + d.icon,
+  }))
+);
 
 export function initD3TechStackBubble(onReady: (runAnimation: () => void) => void): void {
-  d3Data.then((data) => {
+  d3Data.then(data => {
     if (data) {
       initD3TechStackBubbleWithData(data, onReady);
     }
   });
 }
 
-export function initD3TechStackBubbleWithData(data: TechData[], onReady: (runAnimation: () => void) => void): void {
+export function initD3TechStackBubbleWithData(
+  data: TechData[],
+  onReady: (runAnimation: () => void) => void,
+): void {
   const element = document.getElementById('teck-stack-svg');
   if (element === null) return;
 
@@ -114,11 +135,11 @@ export function initD3TechStackBubbleWithData(data: TechData[], onReady: (runAni
   let simulation: d3.Simulation<BubbleNode, undefined>;
 
   const root = d3.hierarchy<{ children: TechData[] }>({ children: data })
-    .sum((d) => (d as unknown as TechData).value || 0);
+    .sum(d => (d as unknown as TechData).value || 0);
 
   // We use pack() to automatically calculate radius conveniently only
   // and get only the leaves
-  const nodes: BubbleNode[] = pack(root).leaves().map((node) => {
+  const nodes: BubbleNode[] = pack(root).leaves().map(node => {
     const nodeData = node.data as unknown as TechData;
     return {
       x: centerX + (node.x - centerX) * 3,
@@ -143,11 +164,14 @@ export function initD3TechStackBubbleWithData(data: TechData[], onReady: (runAni
     .attr('class', 'node')
     .call(
       d3.drag<SVGGElement, BubbleNode>()
-        .on('start', (event: d3.D3DragEvent<SVGGElement, BubbleNode, BubbleNode>, d: BubbleNode) => {
-          if (!event.active) simulation.alphaTarget(0.2).restart();
-          d.fx = d.x;
-          d.fy = d.y;
-        })
+        .on(
+          'start',
+          (event: d3.D3DragEvent<SVGGElement, BubbleNode, BubbleNode>, d: BubbleNode) => {
+            if (!event.active) simulation.alphaTarget(0.2).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+          },
+        )
         .on('drag', (event: d3.D3DragEvent<SVGGElement, BubbleNode, BubbleNode>, d: BubbleNode) => {
           d.fx = event.x;
           d.fy = event.y;
@@ -156,13 +180,13 @@ export function initD3TechStackBubbleWithData(data: TechData[], onReady: (runAni
           if (!event.active) simulation.alphaTarget(0);
           d.fx = null;
           d.fy = null;
-        })
+        }),
     );
 
   node.append('circle')
-    .attr('id', (d) => d.id)
+    .attr('id', d => d.id)
     .attr('r', 0)
-    .style('fill', (d) => scaleColor(d.cat))
+    .style('fill', d => scaleColor(d.cat))
     .transition()
     .duration(2000)
     .ease(d3.easeElasticOut)
@@ -179,36 +203,36 @@ export function initD3TechStackBubbleWithData(data: TechData[], onReady: (runAni
     });
 
   node.append('clipPath')
-    .attr('id', (d) => `clip-${d.id}`)
+    .attr('id', d => `clip-${d.id}`)
     .append('use')
-    .attr('xlink:href', (d) => `#${d.id}`);
+    .attr('xlink:href', d => `#${d.id}`);
 
   // Display text as circle icon
-  node.filter((d) => !d.icon)
+  node.filter(d => !d.icon)
     .append('text')
     .classed('node-icon', true)
-    .attr('clip-path', (d) => `url(#clip-${d.id})`)
+    .attr('clip-path', d => `url(#clip-${d.id})`)
     .selectAll('tspan')
-    .data((d) => d.icon.split(';'))
+    .data(d => d.icon.split(';'))
     .enter()
     .append('tspan')
     .attr('x', 0)
     .attr('y', (_d, i, nodes) => 13 + (i - nodes.length / 2 - 0.5) * 10)
-    .text((name) => name);
+    .text(name => name);
 
   // Display image as circle icon
-  node.filter((d) => !!d.icon)
+  node.filter(d => !!d.icon)
     .append('image')
     .classed('node-icon', true)
-    .attr('clip-path', (d) => `url(#clip-${d.id})`)
-    .attr('xlink:href', (d) => d.icon)
-    .attr('x', (d) => -d.radius * 0.7)
-    .attr('y', (d) => -d.radius * 0.7)
-    .attr('height', (d) => d.radius * 2 * 0.7)
-    .attr('width', (d) => d.radius * 2 * 0.7);
+    .attr('clip-path', d => `url(#clip-${d.id})`)
+    .attr('xlink:href', d => d.icon)
+    .attr('x', d => -d.radius * 0.7)
+    .attr('y', d => -d.radius * 0.7)
+    .attr('height', d => d.radius * 2 * 0.7)
+    .attr('width', d => d.radius * 2 * 0.7);
 
   node.append('title')
-    .text((d) => d.desc);
+    .text(d => d.desc);
 
   const legendOrdinalScale = legendColor()
     .scale(scaleColor)
@@ -220,7 +244,11 @@ export function initD3TechStackBubbleWithData(data: TechData[], onReady: (runAni
     .attr('text-anchor', 'start')
     .attr('transform', 'translate(20,30)')
     .style('font-size', '12px')
-    .call(legendOrdinalScale as unknown as (selection: d3.Selection<SVGGElement, unknown, HTMLElement, unknown>) => void);
+    .call(
+      legendOrdinalScale as unknown as (
+        selection: d3.Selection<SVGGElement, unknown, HTMLElement, unknown>,
+      ) => void,
+    );
 
   const sizeScale = d3.scaleOrdinal<string, number>()
     .domain(['less skilled', 'more skilled'])
@@ -238,7 +266,11 @@ export function initD3TechStackBubbleWithData(data: TechData[], onReady: (runAni
     .attr('text-anchor', 'start')
     .attr('transform', 'translate(150, 25)')
     .style('font-size', '12px')
-    .call(legendSizeScale as unknown as (selection: d3.Selection<SVGGElement, unknown, HTMLElement, unknown>) => void);
+    .call(
+      legendSizeScale as unknown as (
+        selection: d3.Selection<SVGGElement, unknown, HTMLElement, unknown>,
+      ) => void,
+    );
 
   // Info box overlay
   const infoBox = node.append('foreignObject')
@@ -255,11 +287,11 @@ export function initD3TechStackBubbleWithData(data: TechData[], onReady: (runAni
   infoBox.append('h2')
     .classed('circle-overlay__title', true)
     .classed('text-primary', true)
-    .text((d) => d.name);
+    .text(d => d.name);
 
   infoBox.append('p')
     .classed('circle-overlay__body', true)
-    .html((d) => d.desc);
+    .html(d => d.desc);
 
   node.on('click', function(event: MouseEvent, currentNode: BubbleNode) {
     event.stopPropagation();
@@ -374,13 +406,13 @@ export function initD3TechStackBubbleWithData(data: TechData[], onReady: (runAni
 
   function ticked(): void {
     node
-      .attr('transform', (d) => `translate(${d.x},${d.y})`)
+      .attr('transform', d => `translate(${d.x},${d.y})`)
       .select('circle')
-      .attr('r', (d) => d.r);
+      .attr('r', d => d.r);
   }
 
   function runAnimation(): void {
-    forceCollide = d3.forceCollide<BubbleNode>((d) => d.r + 1);
+    forceCollide = d3.forceCollide<BubbleNode>(d => d.r + 1);
 
     simulation = d3.forceSimulation<BubbleNode>()
       .force('charge', d3.forceManyBody())

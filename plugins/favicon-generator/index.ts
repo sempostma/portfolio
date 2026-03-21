@@ -1,6 +1,6 @@
 /**
  * Vite Favicon Generator Plugin
- * 
+ *
  * Generates all favicon variants from a source SVG file during build.
  * Uses sharp for image processing (the only external dependency).
  */
@@ -41,12 +41,12 @@ export interface FaviconGeneratorOptions {
 
 async function generatePng(
   svgBuffer: Buffer,
-  size: number
+  size: number,
 ): Promise<Buffer> {
   return sharp(svgBuffer)
-    .resize(size, size, { 
-      fit: 'contain', 
-      background: { r: 0, g: 0, b: 0, alpha: 0 } 
+    .resize(size, size, {
+      fit: 'contain',
+      background: { r: 0, g: 0, b: 0, alpha: 0 },
     })
     .png()
     .toBuffer();
@@ -54,15 +54,15 @@ async function generatePng(
 
 async function generateIco(
   svgBuffer: Buffer,
-  sizes: number[]
+  sizes: number[],
 ): Promise<Buffer> {
   const images: { size: number; data: Buffer }[] = [];
-  
+
   for (const size of sizes) {
     const pngData = await sharp(svgBuffer)
-      .resize(size, size, { 
-        fit: 'contain', 
-        background: { r: 0, g: 0, b: 0, alpha: 0 } 
+      .resize(size, size, {
+        fit: 'contain',
+        background: { r: 0, g: 0, b: 0, alpha: 0 },
       })
       .png()
       .toBuffer();
@@ -74,7 +74,7 @@ async function generateIco(
   const headerSize = 6;
   const dirEntrySize = 16;
   const dirSize = dirEntrySize * numImages;
-  
+
   // Calculate offsets
   let offset = headerSize + dirSize;
   const offsets: number[] = [];
@@ -86,10 +86,10 @@ async function generateIco(
   // Create buffer
   const totalSize = offset;
   const buffer = Buffer.alloc(totalSize);
-  
+
   // ICO Header
-  buffer.writeUInt16LE(0, 0);         // Reserved
-  buffer.writeUInt16LE(1, 2);         // Type: 1 = ICO
+  buffer.writeUInt16LE(0, 0); // Reserved
+  buffer.writeUInt16LE(1, 2); // Type: 1 = ICO
   buffer.writeUInt16LE(numImages, 4); // Number of images
 
   // Directory entries
@@ -97,15 +97,15 @@ async function generateIco(
     const entryOffset = headerSize + i * dirEntrySize;
     const img = images[i];
     const size = img.size >= 256 ? 0 : img.size;
-    
-    buffer.writeUInt8(size, entryOffset);                    // Width
-    buffer.writeUInt8(size, entryOffset + 1);                // Height
-    buffer.writeUInt8(0, entryOffset + 2);                   // Color palette
-    buffer.writeUInt8(0, entryOffset + 3);                   // Reserved
-    buffer.writeUInt16LE(1, entryOffset + 4);                // Color planes
-    buffer.writeUInt16LE(32, entryOffset + 6);               // Bits per pixel
-    buffer.writeUInt32LE(img.data.length, entryOffset + 8);  // Image size
-    buffer.writeUInt32LE(offsets[i], entryOffset + 12);      // Image offset
+
+    buffer.writeUInt8(size, entryOffset); // Width
+    buffer.writeUInt8(size, entryOffset + 1); // Height
+    buffer.writeUInt8(0, entryOffset + 2); // Color palette
+    buffer.writeUInt8(0, entryOffset + 3); // Reserved
+    buffer.writeUInt16LE(1, entryOffset + 4); // Color planes
+    buffer.writeUInt16LE(32, entryOffset + 6); // Bits per pixel
+    buffer.writeUInt32LE(img.data.length, entryOffset + 8); // Image size
+    buffer.writeUInt32LE(offsets[i], entryOffset + 12); // Image offset
   }
 
   // Image data
@@ -161,10 +161,10 @@ export function faviconGenerator(options: FaviconGeneratorOptions = {}): Plugin 
   return {
     name: 'vite-plugin-favicon-generator',
     apply: 'build', // Only run during build, not dev server
-    
+
     configResolved(config) {
       projectRoot = config.root;
-      
+
       // Try to read app name from package.json
       try {
         const pkgPath = path.join(projectRoot, 'package.json');
@@ -177,12 +177,12 @@ export function faviconGenerator(options: FaviconGeneratorOptions = {}): Plugin 
 
     async buildStart() {
       const sourcePath = path.resolve(projectRoot, source);
-      
+
       // Add source file to watch list
       this.addWatchFile(sourcePath);
-      
+
       const svgBuffer = readFileSync(sourcePath);
-      
+
       console.log(`\n🎨 Generating favicons from ${source}...`);
 
       // Generate standard favicons
@@ -269,7 +269,11 @@ export function faviconGenerator(options: FaviconGeneratorOptions = {}): Plugin 
         });
       }
 
-      console.log(`✅ Generated ${FAVICON_SIZES.length + ANDROID_SIZES.length + APPLE_SIZES.length + MS_SIZES.length + 5} favicon files\n`);
+      console.log(
+        `✅ Generated ${
+          FAVICON_SIZES.length + ANDROID_SIZES.length + APPLE_SIZES.length + MS_SIZES.length + 5
+        } favicon files\n`,
+      );
     },
   };
 }

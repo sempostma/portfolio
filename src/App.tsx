@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXModule } from 'mdx/types';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Mousewheel, Keyboard, HashNavigation, Pagination } from 'swiper/modules';
+import { HashNavigation, Keyboard, Mousewheel, Pagination } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
 import { ContentPage } from './components/ContentPage';
 import { SkillChartPage } from './components/SkillChartPage';
@@ -72,7 +72,6 @@ function App() {
   const [modalImage, setModalImage] = useState<string | null>(null);
   const swiperRef = useRef<SwiperType | null>(null);
 
-
   useEffect(() => {
     // Add swiper-init class after a short delay for animations
     setTimeout(() => {
@@ -114,7 +113,7 @@ function App() {
         noSwiping={true}
         noSwipingSelector="#teck-stack-svg g, #teck-stack-svg g *"
         touchStartPreventDefault={false}
-        onSwiper={(swiper) => {
+        onSwiper={swiper => {
           swiperRef.current = swiper;
         }}
         onSlideChange={handleSlideChange}
@@ -142,14 +141,12 @@ function App() {
                 )}
               </SwiperSlide>
             );
-          }
-
-          else if (frontmatter.layout === 'skillchart') {
-            return (<SwiperSlide key={id} data-hash={id}>
-              {({ isActive }) => (
-                <SkillChartPage isActive={isActive} />
-              )}
-            </SwiperSlide>)
+          } else if (frontmatter.layout === 'skillchart') {
+            return (
+              <SwiperSlide key={id} data-hash={id}>
+                {({ isActive }) => <SkillChartPage isActive={isActive} />}
+              </SwiperSlide>
+            );
           }
 
           return (

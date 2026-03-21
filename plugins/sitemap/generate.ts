@@ -1,8 +1,8 @@
-import { createWriteStream, mkdirSync, existsSync } from "fs";
+import { createWriteStream, existsSync, mkdirSync } from 'fs';
 
-import path from "path";
-import { SitemapStream, streamToPromise } from "sitemap";
-import { CommonSitemapFields, Sitemap } from "sitemap-types";
+import path from 'path';
+import { SitemapStream, streamToPromise } from 'sitemap';
+import { CommonSitemapFields, Sitemap } from 'sitemap-types';
 
 // A small interface for final flattened entries.
 interface FinalSitemapEntry {
@@ -15,20 +15,20 @@ interface FinalSitemapEntry {
 export function generateSitemapPlugin<T extends string>(sitemap: Sitemap<T>) {
   let config: any;
   return {
-    name: "tanstack-router-sitemap",
-    apply: "build" as const,
+    name: 'tanstack-router-sitemap',
+    apply: 'build' as const,
     writeBundle: async () => {
       const outDir = path.resolve(config.root, 'dist');
       await generateSitemap(sitemap, outDir);
     },
     configResolved(resolved: any) {
-      config = resolved
+      config = resolved;
     },
   };
 }
 
 async function generateSitemap<T extends string>(sitemap: Sitemap<T>, outDir: string) {
-  console.log("Generating sitemap...");
+  console.log('Generating sitemap...');
   const startTime = Date.now();
   const finalEntries: FinalSitemapEntry[] = [];
 
@@ -36,16 +36,15 @@ async function generateSitemap<T extends string>(sitemap: Sitemap<T>, outDir: st
     siteUrl,
     routes,
     defaultPriority = 0.5,
-    defaultChangeFreq = "weekly",
+    defaultChangeFreq = 'weekly',
   } = sitemap;
 
   const createEntry = (path: string, entry: CommonSitemapFields) => {
     return {
       url: `${siteUrl}${path}`,
-      lastmod:
-        entry.lastModified instanceof Date
-          ? entry.lastModified.toISOString()
-          : entry.lastModified,
+      lastmod: entry.lastModified instanceof Date
+        ? entry.lastModified.toISOString()
+        : entry.lastModified,
       changefreq: entry.changeFrequency || defaultChangeFreq,
       priority: entry.priority || defaultPriority,
     };
@@ -54,20 +53,20 @@ async function generateSitemap<T extends string>(sitemap: Sitemap<T>, outDir: st
   for (const route in routes) {
     const routeValue = routes[route];
 
-    if (typeof routeValue === "function") {
+    if (typeof routeValue === 'function') {
       const resolvedValue = await routeValue(route);
       if (Array.isArray(resolvedValue)) {
         finalEntries.push(
-          ...resolvedValue.map((entry) => createEntry(entry.path, entry))
+          ...resolvedValue.map(entry => createEntry(entry.path, entry)),
         );
       } else {
         finalEntries.push(createEntry(route, resolvedValue));
       }
     } else if (Array.isArray(routeValue)) {
       finalEntries.push(
-        ...routeValue.map((entry) => createEntry(entry.path, entry))
+        ...routeValue.map(entry => createEntry(entry.path, entry)),
       );
-    } else if (typeof routeValue === "object" && routeValue !== null) {
+    } else if (typeof routeValue === 'object' && routeValue !== null) {
       finalEntries.push(createEntry(route, routeValue));
     } else if (routeValue === null) {
       // Skip this route
@@ -77,7 +76,7 @@ async function generateSitemap<T extends string>(sitemap: Sitemap<T>, outDir: st
   }
 
   // Dynamically resolve the path to the public folder
-  const outputFile = path.resolve(outDir, "sitemap.xml");
+  const outputFile = path.resolve(outDir, 'sitemap.xml');
 
   // Ensure the output directory exists
   if (!existsSync(outDir)) {
@@ -91,7 +90,7 @@ async function generateSitemap<T extends string>(sitemap: Sitemap<T>, outDir: st
 
   try {
     // Write all links to the sitemap stream
-    finalEntries.forEach((entries) => {
+    finalEntries.forEach(entries => {
       sitemapStream.write(entries);
     });
 
@@ -104,9 +103,9 @@ async function generateSitemap<T extends string>(sitemap: Sitemap<T>, outDir: st
     const seconds = (endTime - startTime) / 1000;
 
     console.log(
-      `Generated sitemap ${outputFile} with ${finalEntries.length} entries in ${seconds}s`
+      `Generated sitemap ${outputFile} with ${finalEntries.length} entries in ${seconds}s`,
     );
   } catch (error) {
-    console.error("Error generating sitemap:", error);
+    console.error('Error generating sitemap:', error);
   }
 }

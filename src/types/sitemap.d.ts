@@ -6,25 +6,25 @@ declare module 'sitemap-types' {
 
   /** If any segment starts with `$`, treat it as a param name. */
   type ExtractParams<S extends string> = {
-    [K in SplitPath<S> as K extends `$${infer Param}` | `{-$${infer Param}}` ? Param : never]: string;
+    [K in SplitPath<S> as K extends `$${infer Param}` | `{-$${infer Param}}` ? Param : never]:
+      string;
   };
 
   /** Check if a route string has any `$` segments. */
-  type RouteIsDynamic<R extends string> = keyof ExtractParams<R> extends never
-    ? false
+  type RouteIsDynamic<R extends string> = keyof ExtractParams<R> extends never ? false
     : true;
 
   /** Optional fields that any sitemap entry can have. */
   export type CommonSitemapFields = {
     lastModified?: string | Date;
     changeFrequency?:
-      | "always"
-      | "hourly"
-      | "daily"
-      | "weekly"
-      | "monthly"
-      | "yearly"
-      | "never";
+      | 'always'
+      | 'hourly'
+      | 'daily'
+      | 'weekly'
+      | 'monthly'
+      | 'yearly'
+      | 'never';
     priority?: number;
   };
 
@@ -51,8 +51,7 @@ declare module 'sitemap-types' {
   /**
    * Pick which shape to use based on whether `R` is dynamic or static.
    */
-  type RouteValue<R extends string> = RouteIsDynamic<R> extends true
-    ? DynamicRouteValue<R>
+  type RouteValue<R extends string> = RouteIsDynamic<R> extends true ? DynamicRouteValue<R>
     : StaticRouteValue<R>;
 
   /**
@@ -63,8 +62,8 @@ declare module 'sitemap-types' {
   declare type Sitemap<T extends string> = {
     /** The base URL of your site */
     siteUrl: string;
-    defaultChangeFreq?: CommonSitemapFields["changeFrequency"];
-    defaultPriority?: CommonSitemapFields["priority"];
+    defaultChangeFreq?: CommonSitemapFields['changeFrequency'];
+    defaultPriority?: CommonSitemapFields['priority'];
     /** An object with keys = route strings, values = route config. */
     routes: {
       [R in T]?: RouteValue<R>;
