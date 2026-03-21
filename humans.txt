@@ -2,15 +2,14 @@
 /* TEAM */
     Developer: Sem Postma
     From: Oosterhout, Noord Brabant, The Netherlands
-    Contact: sem.postma@gmail.com
+    Contact: sem@sem-postma.com
 
 
 /* SITE */
-    Last update: 2017/12
-    Language: Dutch
+    Last update: 2026/03
+    Language: English
     Standards: HTML5, CSS3, ES6
-    Software: Node, Npm, Webpack, Github Pages, Babel, Sass, AngularJS
-    Doctype: HTML
+    Software: Node, PNPM, TypeScript, Vite, Github Pages, D3
     IDE: VSCode, Git-Bash, Git, Gimp, Photoshop
     
 
