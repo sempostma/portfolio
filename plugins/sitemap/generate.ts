@@ -1,4 +1,4 @@
-import { createWriteStream } from "fs";
+import { createWriteStream, mkdirSync, existsSync } from "fs";
 
 import path from "path";
 import { SitemapStream, streamToPromise } from "sitemap";
@@ -18,7 +18,7 @@ export function generateSitemapPlugin<T extends string>(sitemap: Sitemap<T>) {
     name: "tanstack-router-sitemap",
     apply: "build" as const,
     writeBundle: async () => {
-      const outDir = path.resolve(config.root, 'dist/client');
+      const outDir = path.resolve(config.root, 'dist');
       await generateSitemap(sitemap, outDir);
     },
     configResolved(resolved: any) {
@@ -78,6 +78,11 @@ async function generateSitemap<T extends string>(sitemap: Sitemap<T>, outDir: st
 
   // Dynamically resolve the path to the public folder
   const outputFile = path.resolve(outDir, "sitemap.xml");
+
+  // Ensure the output directory exists
+  if (!existsSync(outDir)) {
+    mkdirSync(outDir, { recursive: true });
+  }
 
   const writeStream = createWriteStream(outputFile);
   const sitemapStream = new SitemapStream({ hostname: siteUrl });

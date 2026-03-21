@@ -4,11 +4,14 @@ interface SkillChartPageProps {
   isActive?: boolean;
 }
 
+const d3Bubble = import('../d3-techs-bubblechart');
+
 export function SkillChartPage({ isActive = false }: SkillChartPageProps) {
   useEffect(() => {
-    window.initD3TechStackBubble((runAnimation) => {
-      console.log('run animation')
-      runAnimation();
+    d3Bubble.then((module) => {
+      module.initD3TechStackBubble(runAnimation => {
+        runAnimation();
+      });
     });
   }, []);
 

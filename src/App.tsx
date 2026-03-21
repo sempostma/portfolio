@@ -9,10 +9,6 @@ import { SkillChartPage } from './components/SkillChartPage';
 import { CasePage } from './components/CasePage';
 import { ImageModal } from './components/ImageModal';
 import { ParticlesBackground } from './components/ParticlesBackground';
-
-// Import Swiper styles
-import 'swiper/swiper-bundle.css';
-
 interface BaseFrontmatter {
   slug: string;
 }
@@ -44,7 +40,6 @@ const content = import.meta.glob<Page>('./content/*.mdx', { eager: true });
 declare global {
   interface Window {
     particlesJS: any;
-    initD3TechStackBubble: (onReady: (runAnimation: () => void) => void) => void;
   }
 }
 

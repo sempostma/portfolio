@@ -4,9 +4,8 @@ import mdx from '@mdx-js/rollup';
 import tailwindcss from '@tailwindcss/vite';
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
-import { generateSitemapPlugin } from './plugins/sitemap/generate'
 import remarkExternalLinks from './plugins/remark/external-links'
-import { sitemap } from './sitemap'
+import { customPlugins } from './plugins'
 
 export default defineConfig({
   plugins: [
@@ -20,7 +19,7 @@ export default defineConfig({
     }) },
     react({ include: /\.(jsx|js|mdx|md|tsx|ts)$/ }),
     tailwindcss(),
-    generateSitemapPlugin(sitemap),
+    ...customPlugins,
   ],
   resolve: {
     tsconfigPaths: true
