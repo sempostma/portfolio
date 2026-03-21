@@ -1,16 +1,50 @@
 {
-  "name": "portfolio",
+  "name": "sem-postma-portfolio",
   "version": "3.0.0",
-  "description": "Sem Postma Portfolio Website",
+  "description": "🚀 Personal portfolio website of Sem Postma — Full-Stack Developer & Software Engineer. Built with React, TypeScript, Vite, and Tailwind CSS.",
   "type": "module",
+  "private": true,
+  "homepage": "https://sem-postma.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sempostma/sem-postma.com.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sempostma/sem-postma.com/issues"
+  },
+  "author": {
+    "name": "Sem Postma",
+    "email": "sem@postma.com",
+    "url": "https://sem-postma.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "portfolio",
+    "personal-website",
+    "react",
+    "typescript",
+    "vite",
+    "tailwindcss",
+    "mdx",
+    "d3",
+    "developer-portfolio",
+    "sem-postma"
+  ],
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@9.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "pnpm run build && gh-pages -d ./dist --cname sem-postma.com"
+    "deploy": "pnpm run build && gh-pages -d ./dist --cname sem-postma.com",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --ext .ts,.tsx",
+    "format": "dprint fmt",
+    "format:check": "dprint check"
   },
-  "author": "Sem Postma <sem@postma.com>",
-  "license": "MIT",
   "dependencies": {
     "@mdx-js/react": "^3.1.1",
     "d3": "^7.9.0",
@@ -21,7 +55,7 @@
   },
   "devDependencies": {
     "@mdx-js/rollup": "^3.1.0",
-    "gh-pages": "^6.3.0",
+    "dprint": "^0.47.5",
     "@tailwindcss/vite": "^4.2.2",
     "@types/d3": "^7.4.3",
     "@types/mdx": "^2.0.13",
@@ -29,6 +63,7 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
+    "gh-pages": "^6.3.0",
     "mdast-util-definitions": "^6.0.0",
     "remark-frontmatter": "^5.0.0",
     "remark-mdx-frontmatter": "^5.2.0",
