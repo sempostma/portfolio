@@ -286,7 +286,6 @@ export function initD3TechStackBubbleWithData(
 
   infoBox.append('h2')
     .classed('circle-overlay__title', true)
-    .classed('text-primary', true)
     .text(d => d.name);
 
   infoBox.append('p')

@@ -9,6 +9,7 @@ import { ContentPage } from './components/ContentPage';
 import { ImageModal } from './components/ImageModal';
 import { ParticlesBackground } from './components/ParticlesBackground';
 import { SkillChartPage } from './components/SkillChartPage';
+
 interface BaseFrontmatter {
   slug: string;
 }
@@ -62,7 +63,9 @@ const mdxComponents = {
       {props.children}
     </blockquote>
   ),
-  strong: (props: { children: React.ReactNode }) => <span className="text-secondary font-bold">{props.children}</span>,
+  strong: (props: { children: React.ReactNode }) => (
+    <span className="text-secondary font-bold">{props.children}</span>
+  ),
 };
 
 // Get content entries as array for indexing
