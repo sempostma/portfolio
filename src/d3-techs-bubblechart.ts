@@ -296,6 +296,7 @@ export function initD3TechStackBubbleWithData(
   node.on('click', function(event: MouseEvent, currentNode: BubbleNode) {
     event.stopPropagation();
     console.log('currentNode', currentNode);
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     const currentTarget = this;
 
     if (currentNode === focusedNode) {

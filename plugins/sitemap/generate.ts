@@ -3,6 +3,7 @@ import { createWriteStream, existsSync, mkdirSync } from 'fs';
 import path from 'path';
 import { SitemapStream, streamToPromise } from 'sitemap';
 import { CommonSitemapFields, Sitemap } from 'sitemap-types';
+import type { ResolvedConfig } from 'vite';
 
 // A small interface for final flattened entries.
 interface FinalSitemapEntry {
@@ -13,7 +14,7 @@ interface FinalSitemapEntry {
 }
 
 export function generateSitemapPlugin<T extends string>(sitemap: Sitemap<T>) {
-  let config: any;
+  let config: ResolvedConfig;
   return {
     name: 'tanstack-router-sitemap',
     apply: 'build' as const,
@@ -21,7 +22,7 @@ export function generateSitemapPlugin<T extends string>(sitemap: Sitemap<T>) {
       const outDir = path.resolve(config.root, 'dist');
       await generateSitemap(sitemap, outDir);
     },
-    configResolved(resolved: any) {
+    configResolved(resolved: ResolvedConfig) {
       config = resolved;
     },
   };

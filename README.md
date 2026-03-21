@@ -11,7 +11,7 @@
 
 <br />
 
-<img src="public/images/profile.jpg" alt="Sem Postma" width="150" style="border-radius: 50%;" />
+<img src="public/favicon.svg" alt="Sem Postma" width="120" />
 
 ### Full-Stack Developer & Software Engineer
 

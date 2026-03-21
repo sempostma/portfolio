@@ -13,7 +13,7 @@ interface CasePageProps {
 }
 
 export function CasePage(
-  { id, image, image_alt, link, tech, children, onImageClick, isActive = false }: CasePageProps,
+  { id, image, image_alt, children, onImageClick, isActive = false }: CasePageProps,
 ) {
   return (
     <div

@@ -1,14 +1,14 @@
-import { useEffect, useRef, useState } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXModule } from 'mdx/types';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { HashNavigation, Keyboard, Mousewheel, Pagination } from 'swiper/modules';
+import { useEffect, useRef, useState } from 'react';
 import type { Swiper as SwiperType } from 'swiper';
-import { ContentPage } from './components/ContentPage';
-import { SkillChartPage } from './components/SkillChartPage';
+import { HashNavigation, Keyboard, Mousewheel, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { CasePage } from './components/CasePage';
+import { ContentPage } from './components/ContentPage';
 import { ImageModal } from './components/ImageModal';
 import { ParticlesBackground } from './components/ParticlesBackground';
+import { SkillChartPage } from './components/SkillChartPage';
 interface BaseFrontmatter {
   slug: string;
 }
@@ -39,30 +39,30 @@ const content = import.meta.glob<Page>('./content/*.mdx', { eager: true });
 
 declare global {
   interface Window {
-    particlesJS: any;
+    particlesJS: unknown;
   }
 }
 
 // MDX components for styling with Tailwind
 const mdxComponents = {
-  h1: (props: any) => (
+  h1: (props: { children: React.ReactNode }) => (
     <h1 className="text-[2em] font-bold mb-2 leading-snug whitespace-nowrap">
       <span className="text-secondary">.</span>
       <span className="text-primary">{props.children}</span>
     </h1>
   ),
-  ul: (props: any) => (
+  ul: (props: { children: React.ReactNode }) => (
     <ul className="list-disc list-inside -space-y-1">
       {props.children}
     </ul>
   ),
-  p: (props: any) => <p className="leading-snug">{props.children}</p>,
-  blockquote: (props: any) => (
+  p: (props: { children: React.ReactNode }) => <p className="leading-snug">{props.children}</p>,
+  blockquote: (props: { children: React.ReactNode }) => (
     <blockquote className="border-l-4 border-primary pl-4 my-4 italic">
       {props.children}
     </blockquote>
   ),
-  strong: (props: any) => <span className="text-secondary font-bold">{props.children}</span>,
+  strong: (props: { children: React.ReactNode }) => <span className="text-secondary font-bold">{props.children}</span>,
 };
 
 // Get content entries as array for indexing

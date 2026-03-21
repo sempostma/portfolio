@@ -1,19 +1,16 @@
-import { visit } from 'unist-util-visit';
 import { definitions } from 'mdast-util-definitions';
+import { visit } from 'unist-util-visit';
 
-const onlyUnique = (v: any, i: number, a: any[]) => a.indexOf(v) === i;
+const onlyUnique = (v: unknown, i: number, a: unknown[]) => a.indexOf(v) === i;
 
 const refererWhitelist = [
-  'chromewebstore.google.com',
   'medium.com',
-  'casttosonos.com',
-  'youtube.com/watch?v=IBx0BjxkfEI',
 ];
 
 const absolute = (url: string) => /^(?:[a-z][a-z\d+\-.]*:)?\/\//i.test(url);
 
 export default function remarkExternalLinks() {
-  return (tree: any) => {
+  return (tree: Parameters<typeof definitions>[0]) => {
     const definition = definitions(tree);
 
     visit(tree, node => {
@@ -31,7 +28,7 @@ export default function remarkExternalLinks() {
           props.target = '_blank';
 
           if (!refererWhitelist.some(x => ctx.url.includes(x))) {
-            props.rel = (props.rel || [])
+            props.rel = (props.rel as string[] || [])
               .concat('nofollow', 'noopener', 'noreferrer')
               .filter(onlyUnique);
           }

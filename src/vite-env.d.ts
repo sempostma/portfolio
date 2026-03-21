@@ -8,12 +8,11 @@ declare module '*.mdx' {
 
 declare global {
   interface Window {
-    Pageable: any;
     particlesJS: {
       load: (id: string, configPath: string, callback: () => void) => void;
     };
-    initD3TechStackBubble: (onReady: (runAnimation: () => void) => void) => void;
   }
 }
 
-export {};
+export { };
+

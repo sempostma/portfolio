@@ -5,10 +5,10 @@
  * Uses sharp for image processing (the only external dependency).
  */
 
-import type { Plugin } from 'vite';
-import sharp from 'sharp';
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync } from 'fs';
 import path from 'path';
+import sharp from 'sharp';
+import type { Plugin } from 'vite';
 
 // Icon configurations
 const FAVICON_SIZES = [16, 32, 96];
