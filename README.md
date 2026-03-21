@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚀 Sem Postma — Portfolio
+# Sem Postma — Portfolio
 
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fsem-postma.com&style=for-the-badge&logo=google-chrome&logoColor=white&label=Live%20Site)](https://sem-postma.com)
 [![Built with Vite](https://img.shields.io/badge/Built%20with-Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
@@ -15,7 +15,7 @@
 
 ### Full-Stack Developer & Software Engineer
 
-_Building modern, performant web experiences_
+*Building modern, performant web experiences*
 
 [**View Live Site →**](https://sem-postma.com)
 
@@ -23,17 +23,17 @@ _Building modern, performant web experiences_
 
 ---
 
-## ✨ Features
+## Features
 
-- ⚡ **Lightning Fast** — Built with Vite for instant HMR and optimized production builds
-- 🎨 **Modern Design** — Sleek UI with Tailwind CSS and smooth animations
-- 📱 **Fully Responsive** — Looks great on all devices from mobile to desktop
-- 📊 **Interactive Skills Chart** — D3.js powered visualization of technical expertise
-- ✍️ **MDX Content** — Write content in Markdown with React components
-- 🔍 **SEO Optimized** — Auto-generated sitemap, robots.txt, and meta tags
-- 🖼️ **Optimized Images** — Automatic favicon generation and image optimization
+- **Lightning Fast** — Built with Vite for instant HMR and optimized production builds
+- **Modern Design** — Sleek UI with Tailwind CSS and smooth animations
+- **Fully Responsive** — Looks great on all devices from mobile to desktop
+- **Interactive Skills Chart** — D3.js powered visualization of technical expertise
+- **MDX Content** — Write content in Markdown with React components
+- **SEO Optimized** — Auto-generated sitemap, robots.txt, and meta tags
+- **Optimized Images** — Automatic favicon generation and image optimization
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 <table>
 <tr>
@@ -56,7 +56,7 @@ _Building modern, performant web experiences_
 </tr>
 </table>
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 # Clone the repository
@@ -78,28 +78,28 @@ pnpm build
 pnpm preview
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 sem-postma.com/
-├── 📂 public/           # Static assets
-│   ├── 📂 fonts/        # Custom web fonts
-│   ├── 📂 images/       # Images and icons
-│   └── 📂 techs/        # Technology logos
-├── 📂 src/
-│   ├── 📂 components/   # React components
-│   ├── 📂 content/      # MDX content files
-│   ├── 📂 styles/       # CSS styles
-│   └── 📂 types/        # TypeScript definitions
-├── 📂 plugins/          # Custom Vite plugins
+├── public/              # Static assets
+│   ├── fonts/           # Custom web fonts
+│   ├── images/          # Images and icons
+│   └── techs/           # Technology logos
+├── src/
+│   ├── components/      # React components
+│   ├── content/         # MDX content files
+│   ├── styles/          # CSS styles
+│   └── types/           # TypeScript definitions
+├── plugins/             # Custom Vite plugins
 │   ├── favicon-generator/
 │   ├── humans-txt/
 │   ├── remark/
 │   └── sitemap/
-└── 📄 vite.config.ts    # Vite configuration
+└── vite.config.ts       # Vite configuration
 ```
 
-## 📜 Available Scripts
+## Available Scripts
 
 | Command        | Description                       |
 | -------------- | --------------------------------- |
@@ -108,7 +108,7 @@ sem-postma.com/
 | `pnpm preview` | Preview production build locally  |
 | `pnpm deploy`  | Build and deploy to GitHub Pages  |
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
@@ -116,7 +116,7 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 <div align="center">
 
-**[sem-postma.com](https://sem-postma.com)** · Built with ❤️ by Sem Postma
+**[sem-postma.com](https://sem-postma.com)** · Built by Sem Postma
 
 [![GitHub](https://img.shields.io/badge/GitHub-sempostma-181717?style=flat-square&logo=github)](https://github.com/sempostma)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-sempostma-0A66C2?style=flat-square&logo=linkedin)](https://linkedin.com/in/sempostma)
