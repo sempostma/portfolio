@@ -36,7 +36,7 @@ interface Page extends MDXModule {
   frontmatter: PageFrontmatter | CaseFrontmatter | SkillChartFrontmatter;
 }
 
-const content = import.meta.glob<Page>('./content/*.mdx', { eager: true });
+const content = import.meta.glob<Page>('./content/slides/*.mdx', { eager: true });
 
 declare global {
   interface Window {

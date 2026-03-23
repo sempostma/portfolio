@@ -1,5 +1,6 @@
 import * as d3 from 'd3';
 import { legendColor, legendSize } from 'd3-svg-legend';
+import { frontmatter as techContent } from './content/technologies.mdx';
 
 // Type declarations for d3-svg-legend (no official types available)
 declare module 'd3-svg-legend' {
@@ -21,13 +22,13 @@ declare module 'd3-svg-legend' {
   }
 }
 
-// Technology data interface
 export interface TechData {
   cat: string;
   name: string;
   value: number;
   icon: string;
   desc: string;
+  contrast?: boolean;
 }
 
 // Node interface for the bubble chart
@@ -42,6 +43,7 @@ interface BubbleNode {
   value: number;
   icon: string;
   desc: string;
+  contrast?: boolean;
   fx: number | null;
   fy: number | null;
   index?: number;
@@ -57,36 +59,29 @@ const extendedColorScheme = [
   '#2ca02c',
   '#d62728',
   '#9467bd',
-  '#8c564b',
-  '#e377c2',
-  '#7f7f7f',
-  '#bcbd22',
-  '#17becf',
-  '#aec7e8',
-  '#ffbb78',
-  '#98df8a',
-  '#ff9896',
-  '#c5b0d5',
-  '#c49c94',
-  '#f7b6d2',
-  '#c7c7c7',
-  '#dbdb8d',
-  '#9edae5',
+  // '#e377c2',
+  // '#7f7f7f',
+  // '#bcbd22',
+  // '#17becf',
+  // '#aec7e8',
+  // '#ffbb78',
+  // '#98df8a',
+  // '#ff9896',
+  // '#c5b0d5',
+  // '#c49c94',
+  // '#f7b6d2',
+  // '#c7c7c7',
+  // '#dbdb8d',
+  // '#9edae5',
 ];
 
-const d3Data = d3.json<TechData[]>('./technologies.json').then(data =>
-  data?.map(d => ({
-    ...d,
-    icon: '/images/techs/' + d.icon,
-  }))
-);
-
 export function initD3TechStackBubble(onReady: (runAnimation: () => void) => void): void {
-  d3Data.then(data => {
-    if (data) {
-      initD3TechStackBubbleWithData(data, onReady);
-    }
-  });
+  const list = techContent.technologies as TechData[];
+  const listWithMappedPaths = list.map(item => ({
+    ...item,
+    icon: item.icon ? `/images/techs/${item.icon}` : '',
+  }));
+  initD3TechStackBubbleWithData(listWithMappedPaths, onReady);
 }
 
 export function initD3TechStackBubbleWithData(
@@ -152,10 +147,41 @@ export function initD3TechStackBubbleWithData(
       value: nodeData.value,
       icon: nodeData.icon,
       desc: nodeData.desc,
+      contrast: nodeData.contrast,
       fx: null,
       fy: null,
     };
   });
+
+  // Add SVG filter for contrast (converts colors to white, with brightness affecting opacity)
+  // Bright colors become fully white, dark colors become semi-transparent white
+  const defs = svg.append('defs');
+  const contrastFilter = defs.append('filter')
+    .attr('id', 'contrast-to-white')
+    .attr('color-interpolation-filters', 'sRGB');
+
+  // Step 1: Extract luminance (brightness) to use for alpha calculation
+  // Standard luminance coefficients: R=0.2126, G=0.7152, B=0.0722
+  // We store the luminance in the alpha channel for later use
+  contrastFilter.append('feColorMatrix')
+    .attr('type', 'matrix')
+    .attr('result', 'luminance')
+    .attr(
+      'values',
+      `
+      0 0 0 0 1
+      0 0 0 0 1
+      0 0 0 0 1
+      0.2126 0.7152 0.0722 0 0
+    `,
+    );
+
+  // Step 2: Composite with original alpha to preserve transparency from source
+  contrastFilter.append('feComposite')
+    .attr('in', 'luminance')
+    .attr('in2', 'SourceGraphic')
+    .attr('operator', 'in')
+    .attr('result', 'final');
 
   const node = svg.selectAll<SVGGElement, BubbleNode>('.node')
     .data(nodes)
@@ -229,7 +255,8 @@ export function initD3TechStackBubbleWithData(
     .attr('x', d => -d.radius * 0.7)
     .attr('y', d => -d.radius * 0.7)
     .attr('height', d => d.radius * 2 * 0.7)
-    .attr('width', d => d.radius * 2 * 0.7);
+    .attr('width', d => d.radius * 2 * 0.7)
+    .attr('filter', d => d.contrast ? 'url(#contrast-to-white)' : null);
 
   node.append('title')
     .text(d => d.desc);
