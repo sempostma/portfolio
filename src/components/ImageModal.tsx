@@ -9,7 +9,7 @@ export function ImageModal({ imageSrc, onClose }: ImageModalProps) {
   return (
     <div
       id="imgmodal"
-      className="fixed inset-0 z-[1000] bg-black/90 flex items-center justify-center"
+      className="fixed inset-0 z-1000 bg-black/90 flex items-center justify-center"
       onClick={onClose}
     >
       <span
