@@ -15,7 +15,7 @@
 
 ### Full-Stack Developer & Software Engineer
 
-*Building modern, performant web experiences*
+_Building modern, performant web experiences_
 
 [**View Live Site →**](https://sem-postma.com)
 

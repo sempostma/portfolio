@@ -1,6 +1,5 @@
 {
   "$schema": "https://raw.githubusercontent.com/anthropics/model-context-protocol/main/schema/mcp.schema.json",
   "mcpServers": {
-
   }
 }
