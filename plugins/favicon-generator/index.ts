@@ -3,12 +3,13 @@
  *
  * Generates all favicon variants from a source SVG file during build.
  * Uses sharp for image processing (the only external dependency).
+ * Also injects the appropriate link/meta tags into index.html.
  */
 
 import { readFileSync } from 'fs';
 import path from 'path';
 import sharp from 'sharp';
-import type { Plugin } from 'vite';
+import type { HtmlTagDescriptor, Plugin } from 'vite';
 
 // Icon configurations
 const FAVICON_SIZES = [16, 32, 96];
@@ -29,6 +30,10 @@ export interface FaviconGeneratorOptions {
    * @default '#ffffff'
    */
   themeColor?: string;
+  /** MS tile color
+   * @default '#ffffff'
+   */
+  msTileColor?: string;
   /** Generate manifest.json
    * @default true
    */
@@ -37,6 +42,10 @@ export interface FaviconGeneratorOptions {
    * @default true
    */
   generateBrowserConfig?: boolean;
+  /** Inject link/meta tags into HTML
+   * @default true
+   */
+  injectHtmlTags?: boolean;
 }
 
 async function generatePng(
@@ -147,12 +156,105 @@ function generateManifestJson(appName: string, themeColor: string): string {
   return JSON.stringify(manifest, null, 2);
 }
 
+function generateHtmlTags(
+  themeColor: string,
+  msTileColor: string,
+  includeManifest: boolean,
+): HtmlTagDescriptor[] {
+  const tags: HtmlTagDescriptor[] = [];
+
+  // SVG favicon (modern browsers)
+  tags.push({
+    tag: 'link',
+    attrs: { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+    injectTo: 'head',
+  });
+
+  // Apple touch icon (default)
+  tags.push({
+    tag: 'link',
+    attrs: { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+    injectTo: 'head',
+  });
+
+  // Apple touch icons with sizes
+  for (const size of APPLE_SIZES) {
+    tags.push({
+      tag: 'link',
+      attrs: {
+        rel: 'apple-touch-icon',
+        sizes: `${size}x${size}`,
+        href: `/apple-icon-${size}x${size}.png`,
+      },
+      injectTo: 'head',
+    });
+  }
+
+  // Android icon (192x192 is the most important)
+  tags.push({
+    tag: 'link',
+    attrs: {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '192x192',
+      href: '/android-icon-192x192.png',
+    },
+    injectTo: 'head',
+  });
+
+  // Standard favicon PNGs
+  for (const size of FAVICON_SIZES) {
+    tags.push({
+      tag: 'link',
+      attrs: {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: `${size}x${size}`,
+        href: `/favicon-${size}x${size}.png`,
+      },
+      injectTo: 'head',
+    });
+  }
+
+  // Manifest
+  if (includeManifest) {
+    tags.push({
+      tag: 'link',
+      attrs: { rel: 'manifest', href: '/manifest.json' },
+      injectTo: 'head',
+    });
+  }
+
+  // MS application meta tags
+  tags.push({
+    tag: 'meta',
+    attrs: { name: 'msapplication-TileColor', content: msTileColor },
+    injectTo: 'head',
+  });
+  tags.push({
+    tag: 'meta',
+    attrs: { name: 'msapplication-TileImage', content: '/ms-icon-144x144.png' },
+    injectTo: 'head',
+  });
+
+  // Theme color
+  tags.push({
+    tag: 'meta',
+    attrs: { name: 'theme-color', content: themeColor },
+    injectTo: 'head',
+  });
+
+  return tags;
+}
+
 export function faviconGenerator(options: FaviconGeneratorOptions = {}): Plugin {
   const {
     source = 'public/favicon.svg',
     themeColor = '#ffffff',
+    msTileColor = '#ffffff',
     generateManifest = true,
     generateBrowserConfig = true,
+    injectHtmlTags = true,
   } = options;
 
   let projectRoot: string;
@@ -173,6 +275,13 @@ export function faviconGenerator(options: FaviconGeneratorOptions = {}): Plugin 
       } catch {
         // Ignore errors
       }
+    },
+
+    transformIndexHtml() {
+      if (!injectHtmlTags) {
+        return [];
+      }
+      return generateHtmlTags(themeColor, msTileColor, generateManifest);
     },
 
     async buildStart() {

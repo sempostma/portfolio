@@ -3,9 +3,7 @@
 @import 'swiper/css/navigation';
 @import 'swiper/css/pagination';
 
-/* Custom theme configuration for Tailwind v4 */
 @theme {
-  /* Colors from legacy SCSS */
   --color-primary: #FF7945;
   --color-secondary: #7FFFF5;
   --color-dark: #211E2F;
@@ -13,7 +11,7 @@
   --color-danger: rgba(236, 78, 32, 1);
   --color-warning: rgba(255, 149, 5, 1);
   --color-info: rgba(71, 0, 36, 1);
-  --color-background: rgba(255, 255, 255, 1);
+  --color-background: #211e2f;
 
   /* Font family */
   --font-mono: 'JetBrains Mono', monospace;

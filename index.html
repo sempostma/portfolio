@@ -15,92 +15,14 @@
     <link rel="author" href="/humans.txt" />
     <link rel="canonical" href="https://sem-postma.com/" />
 
-    <style>
-      html {
-        background-color: #211e2f;
-      }
-    </style>
-
-    <!-- External scripts loaded via CDN -->
-    <script defer src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-
-    <!-- Favicons -->
+    <!-- Favicons are injected by vite-plugin-favicon-generator during build -->
+    <!-- For development, add a basic favicon reference -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png" />
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="msapplication-TileColor" content="#ffffff" />
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-    <meta name="theme-color" content="#ffffff" />
   </head>
   <body>
     <div id="root"></div>
 
     <!-- Vite entry point -->
     <script type="module" src="/src/main.tsx"></script>
-
-    <!-- Drift Chat Widget -->
-    <script>
-      'use strict';
-      !(function () {
-        var t = (window.driftt = window.drift = window.driftt || []);
-        if (!t.init) {
-          if (t.invoked)
-            return void (
-              window.console &&
-              console.error &&
-              console.error('Drift snippet included twice.')
-            );
-          (t.invoked = !0),
-            (t.methods = [
-              'identify',
-              'config',
-              'track',
-              'reset',
-              'debug',
-              'show',
-              'ping',
-              'page',
-              'hide',
-              'off',
-              'on',
-            ]),
-            (t.factory = function (e) {
-              return function () {
-                var n = Array.prototype.slice.call(arguments);
-                return n.unshift(e), t.push(n), t;
-              };
-            }),
-            t.methods.forEach(function (e) {
-              t[e] = t.factory(e);
-            }),
-            (t.load = function (t) {
-              var e = 3e5,
-                n = Math.ceil(new Date() / e) * e,
-                o = document.createElement('script');
-              (o.type = 'text/javascript'),
-                (o.async = !0),
-                (o.crossorigin = 'anonymous'),
-                (o.src = 'https://js.driftt.com/include/' + n + '/' + t + '.js');
-              var i = document.getElementsByTagName('script')[0];
-              i.parentNode.insertBefore(o, i);
-            });
-        }
-      })();
-      drift.SNIPPET_VERSION = '0.3.1';
-      drift.load('e8cckgu227kd');
-    </script>
   </body>
 </html>
