@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OncologieWijzer — Pitch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ═══════ DEFAULT THEME: BLUE & WHITE ═══════ */
+:root {
+  --bg: #F0F5FB;
+  --bg-warm: #E4EDF8;
+  --bg-card: #FFFFFF;
+  --text: #0D1B2E;
+  --text-muted: #3D5470;
+  --text-light: #7A96B4;
+  --accent: #1565A8;
+  --accent-soft: #7FB3DE;
+  --accent-glow: rgba(21, 101, 168, 0.08);
+  --teal: #0D7377;
+  --teal-soft: #C8F0EE;
+  --blue: #1E40AF;
+  --blue-soft: #DBEAFE;
+  --amber: #B45309;
+  --amber-soft: #FEF3C7;
+  --purple: #4338CA;
+  --purple-soft: #E0E7FF;
+  --border: #C8D9EC;
+  --border-strong: #A8C0D8;
+  --shadow-sm: 0 1px 3px rgba(13,27,46,0.06);
+  --shadow-md: 0 4px 20px rgba(13,27,46,0.08);
+  --radius: 16px;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'Outfit', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+/* ═══════ THEME: EDITORIAL WARM ═══════ */
+[data-theme="editorial"] {
+  --bg: #FAF8F5; --bg-warm: #F5F0EA; --bg-card: #FFFFFF;
+  --text: #1A1A1A; --text-muted: #6B6560; --text-light: #9C9590;
+  --accent: #C45A3C; --accent-soft: #E8A590; --accent-glow: rgba(196,90,60,0.08);
+  --teal: #2A7F6E; --teal-soft: #D0EBE4;
+  --blue: #3A6EA5; --blue-soft: #D4E4F5;
+  --amber: #B8860B; --amber-soft: #F5E6C4;
+  --purple: #6B5B8A; --purple-soft: #E4DFF0;
+  --border: #E8E2DA; --border-strong: #D4CCC2;
+  --shadow-sm: 0 1px 3px rgba(26,26,26,0.04); --shadow-md: 0 4px 20px rgba(26,26,26,0.06);
+  --serif: 'Instrument Serif', Georgia, serif; --sans: 'Outfit', system-ui, sans-serif;
+}
+
+/* ═══════ THEME: BOTANICAL ═══════ */
+[data-theme="botanical"] {
+  --bg: #F6F9F4; --bg-warm: #ECF2E8; --bg-card: #FFFFFF;
+  --text: #1B2E1B; --text-muted: #4A6349; --text-light: #8AA488;
+  --accent: #2D6A4F; --accent-soft: #95D5B2; --accent-glow: rgba(45,106,79,0.07);
+  --teal: #1B4332; --teal-soft: #D8F3DC;
+  --blue: #3A6EA5; --blue-soft: #D4E4F5;
+  --amber: #926C15; --amber-soft: #FEFAE0;
+  --purple: #6B5B8A; --purple-soft: #E4DFF0;
+  --border: #D5E2CF; --border-strong: #B7CCAD;
+  --shadow-sm: 0 1px 3px rgba(27,46,27,0.04); --shadow-md: 0 4px 20px rgba(27,46,27,0.06);
+  --serif: 'Instrument Serif', Georgia, serif; --sans: 'Outfit', system-ui, sans-serif;
+}
+
+/* ═══════ THEME: DARK ═══════ */
+[data-theme="dark"] {
+  --bg: #0F172A; --bg-warm: #1E293B; --bg-card: #1E293B;
+  --text: #F1F5F9; --text-muted: #94A3B8; --text-light: #64748B;
+  --accent: #60A5FA; --accent-soft: #3B82F6; --accent-glow: rgba(96,165,250,0.1);
+  --teal: #34D399; --teal-soft: rgba(52,211,153,0.15);
+  --blue: #818CF8; --blue-soft: rgba(129,140,248,0.15);
+  --amber: #FBBF24; --amber-soft: rgba(251,191,36,0.15);
+  --purple: #A78BFA; --purple-soft: rgba(167,139,250,0.15);
+  --border: #334155; --border-strong: #475569;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.2); --shadow-md: 0 4px 20px rgba(0,0,0,0.3);
+  --serif: 'Instrument Serif', Georgia, serif; --sans: 'Outfit', system-ui, sans-serif;
+}
+
+/* ═══════ THEME SWITCHER UI ═══════ */
+.theme-switcher {
+  position: fixed; top: 16px; right: 24px; z-index: 200;
+  display: flex; align-items: center; gap: 6px;
+}
+.theme-switcher-label {
+  font-family: var(--sans); font-size: 0.65rem; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--text-light); margin-right: 4px; font-weight: 600;
+}
+.theme-btn {
+  width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--border);
+  cursor: pointer; transition: all 0.25s ease; position: relative; overflow: hidden;
+  padding: 0; display: flex; align-items: center; justify-content: center;
+}
+.theme-btn:hover { transform: scale(1.15); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.theme-btn.active { border-color: var(--accent); transform: scale(1.15); }
+.theme-btn .swatch { width: 100%; height: 100%; border-radius: 50%; }
+.theme-btn[data-theme="blue"] .swatch   { background: linear-gradient(135deg, #F0F5FB 50%, #1565A8 50%); }
+.theme-btn[data-theme="editorial"] .swatch { background: linear-gradient(135deg, #FAF8F5 50%, #C45A3C 50%); }
+.theme-btn[data-theme="botanical"] .swatch { background: linear-gradient(135deg, #F6F9F4 50%, #2D6A4F 50%); }
+.theme-btn[data-theme="dark"] .swatch   { background: linear-gradient(135deg, #1E293B 50%, #60A5FA 50%); }
+.theme-btn-tooltip {
+  position: absolute; bottom: -28px; left: 50%; transform: translateX(-50%);
+  white-space: nowrap; font-size: 0.6rem; font-family: var(--sans); font-weight: 500;
+  color: var(--text-muted); background: var(--bg-card); border: 1px solid var(--border);
+  padding: 2px 8px; border-radius: 4px; opacity: 0; pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.theme-btn:hover .theme-btn-tooltip { opacity: 1; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Progress ─── */
+.progress-track { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: var(--border); z-index: 100; }
+.progress-fill { height: 100%; background: var(--accent); transition: width 0.4s cubic-bezier(0.4,0,0.2,1); border-radius: 0 2px 2px 0; }
+
+/* ─── Nav dots ─── */
+.nav-dots { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 100; }
+.nav-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--border-strong); border: none; cursor: pointer; transition: all 0.3s ease; padding: 0; }
+.nav-dot.active { background: var(--accent); transform: scale(1.35); }
+.nav-dot:hover { background: var(--accent-soft); }
+
+/* ─── Counter & hint ─── */
+.slide-counter { position: fixed; bottom: 28px; right: 40px; font-family: var(--mono); font-size: 0.75rem; color: var(--text-light); z-index: 100; }
+.key-hint { position: fixed; bottom: 28px; left: 40px; font-size: 0.7rem; color: var(--text-light); z-index: 100; display: flex; align-items: center; gap: 6px; }
+.key-hint kbd { display: inline-flex; align-items: center; justify-content: center; min-width: 22px; height: 22px; padding: 0 5px; font-family: var(--mono); font-size: 0.65rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; }
+
+/* ─── Deck & slides ─── */
+.deck { position: relative; width: 100vw; height: 100vh; }
+
+.slide {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  padding: 60px 80px;
+  opacity: 0; visibility: hidden; transform: translateY(24px);
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s 0.5s;
+  overflow-y: auto;
+}
+.slide.active { opacity: 1; visibility: visible; transform: translateY(0); transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s 0s; }
+.slide-inner { max-width: 1100px; width: 100%; }
+
+/* ─── Animations ─── */
+.slide.active .stagger { animation: fadeUp 0.5s ease both; }
+.slide.active .stagger:nth-child(1) { animation-delay: 0.05s; }
+.slide.active .stagger:nth-child(2) { animation-delay: 0.13s; }
+.slide.active .stagger:nth-child(3) { animation-delay: 0.21s; }
+.slide.active .stagger:nth-child(4) { animation-delay: 0.29s; }
+.slide.active .stagger:nth-child(5) { animation-delay: 0.37s; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ─── Typography ─── */
+h1 { font-family: var(--serif); font-weight: 400; line-height: 1.1; }
+h2 { font-family: var(--serif); font-weight: 400; font-size: 3.4rem; line-height: 1.12; margin-bottom: 1.5rem; color: var(--text); }
+h3 { font-family: var(--sans); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 0.75rem; }
+p { font-size: 1.25rem; line-height: 1.65; color: var(--text-muted); }
+strong { color: var(--text); font-weight: 600; }
+
+/* ─── Layout helpers ─── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+
+/* ─── Cards ─── */
+.card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow-sm); }
+.card h4 { font-family: var(--sans); font-weight: 600; font-size: 1.15rem; margin-bottom: 10px; color: var(--text); }
+.card p { font-size: 1.05rem; }
+
+/* ─── Big stat ─── */
+.big-stat { font-family: var(--serif); font-size: 4rem; color: var(--accent); line-height: 1; margin-bottom: 8px; }
+.big-stat-label { font-size: 1.05rem; color: var(--text-muted); }
+
+/* ─── Badge / tag ─── */
+.tag { display: inline-flex; align-items: center; padding: 6px 16px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; border-radius: 100px; background: var(--accent-glow); color: var(--accent); border: 1px solid rgba(196,90,60,0.15); }
+
+/* ─── Accent line ─── */
+.accent-line { width: 52px; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 1.5rem; }
+.accent-line.center { margin-left: auto; margin-right: auto; }
+
+/* ─── Flow diagram ─── */
+.flow { display: flex; flex-direction: column; gap: 8px; }
+.flow-step { display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-radius: 12px; font-size: 1.05rem; font-weight: 500; }
+.flow-arrow { text-align: center; font-size: 1.1rem; color: var(--text-light); padding: 0 20px; }
+.flow-result { display: flex; gap: 12px; }
+.flow-pass { flex: 1; padding: 12px 16px; background: rgba(42,127,110,0.07); border: 1px solid rgba(42,127,110,0.2); border-radius: 10px; font-size: 1rem; text-align: center; color: var(--teal); font-weight: 600; }
+.flow-block { flex: 1; padding: 12px 16px; background: rgba(196,90,60,0.07); border: 1px solid rgba(196,90,60,0.2); border-radius: 10px; font-size: 1rem; text-align: center; color: var(--accent); font-weight: 600; }
+
+/* ─── Arch node ─── */
+.arch-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-bottom: 6px; }
+.arch-node { padding: 10px 18px; border-radius: 10px; font-size: 0.95rem; font-weight: 500; border: 1px solid var(--border); background: var(--bg-card); color: var(--text); }
+.arch-node.primary { background: var(--accent-glow); border-color: rgba(196,90,60,0.2); color: var(--accent); }
+.arch-node.teal { background: var(--teal-soft); border-color: rgba(42,127,110,0.2); color: var(--teal); }
+.arch-node.blue { background: var(--blue-soft); border-color: rgba(58,110,165,0.2); color: var(--blue); }
+.arch-node.purple { background: var(--purple-soft); border-color: rgba(107,91,138,0.2); color: var(--purple); }
+.arch-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-light); font-weight: 600; text-align: center; margin-bottom: 6px; }
+.arch-conn { text-align: center; color: var(--text-light); font-size: 1.1rem; margin: 4px 0; }
+
+/* ─── Check list ─── */
+.checklist { list-style: none; padding: 0; }
+.checklist li { padding: 10px 0; font-size: 1.15rem; color: var(--text-muted); border-bottom: 1px solid var(--border); display: flex; gap: 12px; align-items: flex-start; }
+.checklist li:last-child { border-bottom: none; }
+.checklist li span.icon { color: var(--teal); font-size: 1rem; margin-top: 3px; flex-shrink: 0; }
+
+@media (max-width: 900px) {
+  .slide { padding: 40px 32px; }
+  h2 { font-size: 2.4rem; }
+  .two-col, .three-col { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-track"><div class="progress-fill" id="progress"></div></div>
+
+<div class="theme-switcher" id="themeSwitcher">
+  <span class="theme-switcher-label">Theme</span>
+  <button class="theme-btn active" data-theme="blue" title="Blue &amp; White">
+    <div class="swatch"></div><span class="theme-btn-tooltip">Blue</span>
+  </button>
+  <button class="theme-btn" data-theme="editorial" title="Editorial Warm">
+    <div class="swatch"></div><span class="theme-btn-tooltip">Warm</span>
+  </button>
+  <button class="theme-btn" data-theme="botanical" title="Botanical">
+    <div class="swatch"></div><span class="theme-btn-tooltip">Green</span>
+  </button>
+  <button class="theme-btn" data-theme="dark" title="Dark">
+    <div class="swatch"></div><span class="theme-btn-tooltip">Dark</span>
+  </button>
+</div>
+
+<div class="key-hint"><kbd>&larr;</kbd><kbd>&rarr;</kbd> navigate &ensp; <kbd>T</kbd> theme</div>
+<div class="nav-dots" id="navDots"></div>
+<div class="slide-counter" id="counter"></div>
+
+<div class="deck" id="deck">
+
+  <!-- ════════════ SLIDE 1: TITLE ════════════ -->
+  <section class="slide active" data-slide="0">
+    <div class="slide-inner" style="text-align:center;">
+      <div class="accent-line center stagger"></div>
+      <h1 class="stagger" style="font-size:5.5rem; margin-bottom:1rem;">OncologieWijzer</h1>
+      <p class="stagger" style="font-size:1.6rem; max-width:640px; margin:0 auto 2.5rem; color:var(--text-muted);">
+        Trusted cancer information.<br>
+        <em style="font-family:var(--serif); color:var(--accent);">As fast and easy as ChatGPT. Actually correct.</em>
+      </p>
+      <div class="stagger" style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap;">
+        <span class="tag">IKNL Med Tech Track</span>
+        <span class="tag" style="background:rgba(42,127,110,0.08); color:var(--teal); border-color:rgba(42,127,110,0.15);">Team Uncloud</span>
+        <span class="tag" style="background:rgba(58,110,165,0.08); color:var(--blue); border-color:rgba(58,110,165,0.15);">BrabantHack 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════ SLIDE 2: PROBLEM ════════════ -->
+  <section class="slide" data-slide="1">
+    <div class="slide-inner">
+      <h3 class="stagger">Problem &amp; Approach</h3>
+      <h2 class="stagger">Patients use ChatGPT.<br>It sounds right. It isn&rsquo;t.</h2>
+
+      <div class="two-col stagger">
+        <div style="display:flex; flex-direction:column; gap:20px;">
+          <div style="background:var(--bg-warm); border:1px solid var(--border); border-left:4px solid var(--accent); border-radius:var(--radius); padding:28px;">
+            <p style="font-size:1.3rem; font-family:var(--serif); color:var(--text); line-height:1.5;">
+              &ldquo;I asked ChatGPT &mdash; it&rsquo;s fast, comfortable, no login needed.&rdquo;
+            </p>
+            <p style="font-size:1.1rem; margin-top:14px;">
+              That&rsquo;s the bar we must match. If our tool is harder to reach, patients go back to ChatGPT &mdash; where answers are <strong>confidently wrong</strong>.
+            </p>
+          </div>
+          <div style="background:var(--bg-warm); border:1px solid var(--border); border-radius:var(--radius); padding:22px 28px;">
+            <p style="font-size:0.85rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-light); font-weight:600; margin-bottom:10px;">User</p>
+            <p style="font-size:1.15rem;">Patient looking for information &mdash; in a format as fast and familiar as ChatGPT, but correct. Like <em>thuisarts.nl</em>, but for oncology. On the IKNL page.</p>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <div class="card" style="border-left:4px solid var(--accent);">
+            <h4>&#9679;&nbsp; Familiar &amp; frictionless</h4>
+            <p>No login. No navigation. A chatbot &mdash; because that&rsquo;s where the problem lives and what patients already use.</p>
+          </div>
+          <div class="card" style="border-left:4px solid var(--teal);">
+            <h4>&#9679;&nbsp; Accurate &mdash; sources only</h4>
+            <p>Direct links to trusted sources. No interpretation, no clinical decisions. If we&rsquo;re not sure, we say so.</p>
+          </div>
+          <div class="card" style="border-left:4px solid var(--purple);">
+            <h4>&#9679;&nbsp; Quantitative</h4>
+            <p>Digitized Lastmeter detects psychosocial need &amp; creates population data for IKNL. Output exports as a GP-ready summary.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════ SLIDE 3: IMPACT ════════════ -->
+  <section class="slide" data-slide="2">
+    <div class="slide-inner">
+      <h3 class="stagger">Impact</h3>
+      <h2 class="stagger">Three groups benefit.<br>One tool.</h2>
+
+      <div class="three-col stagger">
+        <div class="card" style="border-top:4px solid var(--teal);">
+          <div style="font-size:2.5rem; margin-bottom:12px;">&#128100;</div>
+          <h4>Patient</h4>
+          <p>Correct, cited answers — as fast as ChatGPT, no login. Distress screening exports as a <strong>GP-ready summary</strong>, so patients can fully describe their situation before a time-limited appointment.</p>
+          <p style="margin-top:10px; font-size:1rem; color:var(--text-light);">The chat becomes a helper — not a replacement for their doctor.</p>
+        </div>
+        <div class="card" style="border-top:4px solid var(--blue);">
+          <div style="font-size:2.5rem; margin-bottom:12px;">&#128084;</div>
+          <h4>Clinician</h4>
+          <p>Structured distress report arrives before the visit. Patients are better prepared. <strong>Clinical visit anxiety</strong> &mdash; rushing to describe everything in 10 minutes &mdash; is reduced.</p>
+        </div>
+        <div class="card" style="border-top:4px solid var(--purple);">
+          <div style="font-size:2.5rem; margin-bottom:12px;">&#128202;</div>
+          <h4>IKNL</h4>
+          <p>Aggregated Lastmeter scores over time create a <strong>new population signal</strong>. If average distress rises year over year, IKNL sees it in the data before it appears in clinical records.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════ SLIDE 4: ARCHITECTURE ════════════ -->
+  <section class="slide" data-slide="3">
+    <div class="slide-inner">
+      <h3 class="stagger">Architecture</h3>
+      <h2 class="stagger">One question. Seven sources.<br>Every answer cited.</h2>
+
+      <div class="two-col stagger" style="align-items:center; gap:48px;">
+        <div>
+          <div style="background:var(--bg-warm); border:1px solid var(--border); border-radius:var(--radius); padding:28px;">
+            <div class="arch-label">User</div>
+            <div class="arch-row"><div class="arch-node primary">Patient question</div></div>
+            <div class="arch-conn">&#8595;</div>
+
+            <div class="arch-label">Safety Layer</div>
+            <div class="arch-row">
+              <div class="arch-node">Red-flag detection</div>
+              <div class="arch-node">Scope check</div>
+            </div>
+            <div class="arch-conn">&#8595;</div>
+
+            <div class="arch-label">Retrieval — structured first</div>
+            <div class="arch-row">
+              <div class="arch-node blue">NKR API</div>
+              <div class="arch-node blue">Atlas API</div>
+              <div class="arch-node teal">Qdrant vectors</div>
+              <div class="arch-node purple">Neo4j graph</div>
+            </div>
+            <div class="arch-conn">&#8595;</div>
+
+            <div class="arch-label">Answer</div>
+            <div class="arch-row"><div class="arch-node primary">Claude — cites [SRC-N] only</div></div>
+          </div>
+        </div>
+        <div>
+          <ul class="checklist">
+            <li><span class="icon">&#10003;</span> 7 approved IKNL source families — no open web</li>
+            <li><span class="icon">&#10003;</span> LLM never writes URLs — server assembles citations</li>
+            <li><span class="icon">&#10003;</span> Refuses below confidence threshold — says "I don't know"</li>
+            <li><span class="icon">&#10003;</span> Emergency symptoms route to 112 / huisarts / 113</li>
+            <li><span class="icon">&#10003;</span> Lastmeter distress scores stay client-side</li>
+            <li><span class="icon">&#10003;</span> FastAPI backend — 27 endpoints, all sources connected</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════ SLIDE 5: FUTURE STEPS ════════════ -->
+  <section class="slide" data-slide="4">
+    <div class="slide-inner">
+      <h3 class="stagger">Future Steps</h3>
+      <h2 class="stagger">A Compliance Officer agent.<br>Clean context. Dutch regulations.</h2>
+
+      <div class="two-col stagger" style="gap:48px; align-items:center;">
+        <div>
+          <p style="font-size:1.25rem; margin-bottom:1.5rem;">
+            AI has no BIG-registratie. We need an <strong>independent supervisor agent</strong> that inspects every answer — with a fresh context window, no conversation history.
+          </p>
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            <div class="card" style="padding:20px 24px; border-left:4px solid var(--amber);">
+              <h4 style="font-size:1.05rem;">Inputs: question + answer + tool results</h4>
+              <p style="font-size:1rem;">No chat history — smaller, sharper focus on compliance.</p>
+            </div>
+            <div class="card" style="padding:20px 24px; border-left:4px solid var(--teal);">
+              <h4 style="font-size:1.05rem;">Checks WGBO, AVG &amp; AI Act</h4>
+              <p style="font-size:1rem;">Flags answers that drift into clinical decision-making or cite unsupported claims.</p>
+            </div>
+            <div class="card" style="padding:20px 24px; border-left:4px solid var(--accent);">
+              <h4 style="font-size:1.05rem;">Blocks — doesn&rsquo;t just log</h4>
+              <p style="font-size:1rem;">Non-compliant answers are held. Patient gets a safe fallback.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div style="background:var(--bg-warm); border:1px solid var(--border); border-radius:var(--radius); padding:28px;">
+            <div class="flow">
+              <div class="flow-step" style="background:var(--bg-card); border:1px solid var(--border);">
+                <span style="font-size:1.4rem;">&#128100;</span> User question
+              </div>
+              <div class="flow-arrow">&#8595;</div>
+              <div class="flow-step" style="background:var(--teal-soft); border:1px solid rgba(42,127,110,0.2);">
+                <span style="font-size:1.4rem;">&#129302;</span> Answer Agent &mdash; retrieves &amp; cites
+              </div>
+              <div class="flow-arrow">&#8595; answer + tool results</div>
+              <div class="flow-step" style="background:var(--amber-soft); border:1px solid rgba(184,134,11,0.2);">
+                <span style="font-size:1.4rem;">&#128373;</span> Compliance Agent &mdash; fresh context
+              </div>
+              <div class="flow-arrow">&#8595;</div>
+              <div class="flow-result">
+                <div class="flow-pass">&#10003; Compliant<br><span style="font-size:0.85rem; font-weight:400;">→ user</span></div>
+                <div class="flow-block">&#10007; Blocked<br><span style="font-size:0.85rem; font-weight:400;">→ safe fallback</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function() {
+  const slides = document.querySelectorAll('.slide');
+  const progress = document.getElementById('progress');
+  const counter = document.getElementById('counter');
+  const dotsContainer = document.getElementById('navDots');
+  let current = 0;
+  const total = slides.length;
+
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement('button');
+    dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  }
+
+  function goTo(n) {
+    if (n < 0 || n >= total || n === current) return;
+    slides[current].classList.remove('active');
+    dotsContainer.children[current].classList.remove('active');
+    current = n;
+    slides[current].classList.add('active');
+    dotsContainer.children[current].classList.add('active');
+    progress.style.width = ((current / (total - 1)) * 100) + '%';
+    counter.textContent = (current + 1) + ' / ' + total;
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  /* ─── Theme Switching ─── */
+  const themes = ['blue', 'editorial', 'botanical', 'dark'];
+  const themeBtns = document.querySelectorAll('.theme-btn');
+  let currentTheme = 0;
+
+  function setTheme(name) {
+    if (name === 'blue') {
+      document.documentElement.removeAttribute('data-theme');
+    } else {
+      document.documentElement.setAttribute('data-theme', name);
+    }
+    themeBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.theme === name));
+    currentTheme = themes.indexOf(name);
+  }
+
+  themeBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => { e.stopPropagation(); setTheme(btn.dataset.theme); });
+  });
+
+  function cycleTheme() {
+    currentTheme = (currentTheme + 1) % themes.length;
+    setTheme(themes[currentTheme]);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); prev(); }
+    if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+    if (e.key === 'End') { e.preventDefault(); goTo(total - 1); }
+    if (e.key === 't' || e.key === 'T') { e.preventDefault(); cycleTheme(); }
+  });
+
+  let touchStartX = 0;
+  document.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
+  document.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('.nav-dot, a, button, input')) return;
+    if (e.clientX > window.innerWidth * 0.65) next();
+    else if (e.clientX < window.innerWidth * 0.35) prev();
+  });
+
+  progress.style.width = '0%';
+  counter.textContent = '1 / ' + total;
+})();
+</script>
+</body>
+</html>
