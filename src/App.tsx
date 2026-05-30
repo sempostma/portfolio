@@ -6,9 +6,11 @@ import { HashNavigation, Keyboard, Mousewheel, Pagination } from 'swiper/modules
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { CasePage } from './components/CasePage';
 import { ContentPage } from './components/ContentPage';
+import { ForkPrompt } from './components/ForkPrompt';
 import { ImageModal } from './components/ImageModal';
 import { ParticlesBackground } from './components/ParticlesBackground';
 import { SkillChartPage } from './components/SkillChartPage';
+import { useIsMobile } from './hooks/useIsMobile';
 
 interface BaseFrontmatter {
   slug: string;
@@ -74,6 +76,7 @@ const contentEntries = Object.entries(content);
 function App() {
   const [modalImage, setModalImage] = useState<string | null>(null);
   const swiperRef = useRef<SwiperType | null>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     // Add swiper-init class after a short delay for animations
@@ -98,6 +101,7 @@ function App() {
     <MDXProvider components={mdxComponents}>
       <ParticlesBackground />
       <Swiper
+        key={isMobile ? 'mobile' : 'desktop'}
         modules={[Mousewheel, Keyboard, HashNavigation, Pagination]}
         direction="vertical"
         slidesPerView={1}
@@ -122,12 +126,43 @@ function App() {
         onSlideChange={handleSlideChange}
         style={{ height: '100vh', width: '100%' }}
       >
-        {contentEntries.map(([key, value]) => {
+        {contentEntries.flatMap(([key, value]) => {
           const id = value.frontmatter.slug;
           const Component = value.default;
           const frontmatter = value.frontmatter;
 
           if (frontmatter.layout === 'case') {
+            if (isMobile) {
+              return [
+                <SwiperSlide key={`${id}-text`} data-hash={id}>
+                  {({ isActive }) => (
+                    <CasePage
+                      id={id}
+                      variant="mobile-text"
+                      image={frontmatter.image}
+                      link={frontmatter.link}
+                      tech={frontmatter.tech}
+                      onImageClick={openModal}
+                      isActive={isActive}
+                    >
+                      <Component />
+                    </CasePage>
+                  )}
+                </SwiperSlide>,
+                <SwiperSlide key={`${id}-image`} data-hash={`${id}-image`}>
+                  {({ isActive }) => (
+                    <CasePage
+                      id={id}
+                      variant="mobile-image"
+                      image={frontmatter.image}
+                      image_alt={frontmatter.image_alt}
+                      onImageClick={openModal}
+                      isActive={isActive}
+                    />
+                  )}
+                </SwiperSlide>,
+              ];
+            }
             return (
               <SwiperSlide key={id} data-hash={id}>
                 {({ isActive }) => (
@@ -169,6 +204,7 @@ function App() {
         })}
       </Swiper>
       <ImageModal imageSrc={modalImage} onClose={closeModal} />
+      <ForkPrompt />
     </MDXProvider>
   );
 }
